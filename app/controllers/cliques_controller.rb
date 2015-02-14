@@ -1,28 +1,21 @@
 class CliquesController < ApplicationController
   before_action :set_clique, only: [:show, :edit, :update, :destroy]
+  
 
-  # GET /cliques
-  # GET /cliques.json
   def index
     @cliques = Clique.all
   end
 
-  # GET /cliques/1
-  # GET /cliques/1.json
   def show
   end
 
-  # GET /cliques/new
   def new
     @clique = Clique.new
   end
 
-  # GET /cliques/1/edit
   def edit
   end
 
-  # POST /cliques
-  # POST /cliques.json
   def create
     @clique = Clique.new(clique_params)
 
@@ -37,8 +30,6 @@ class CliquesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cliques/1
-  # PATCH/PUT /cliques/1.json
   def update
     respond_to do |format|
       if @clique.update(clique_params)
@@ -51,8 +42,6 @@ class CliquesController < ApplicationController
     end
   end
 
-  # DELETE /cliques/1
-  # DELETE /cliques/1.json
   def destroy
     @clique.destroy
     respond_to do |format|
@@ -62,12 +51,14 @@ class CliquesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_clique
       @clique = Clique.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def create_slambook
+      @clique.slambook.create
+    end
+
     def clique_params
       params.require(:clique).permit(:name)
     end
