@@ -9,4 +9,7 @@
 #
 
 class Clique < ActiveRecord::Base
+
+	has_one :slambook, dependent: :destroy
+
 end

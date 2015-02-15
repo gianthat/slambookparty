@@ -11,4 +11,7 @@
 
 class Slambook < ActiveRecord::Base
 
+	belongs_to :clique
+	has_many :pages, dependent: :destroy
+
 end

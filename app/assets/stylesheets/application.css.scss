@@ -19,26 +19,36 @@
 
  .home-page {
 
-	background: url(image-path("glitter-bg.jpg")) no-repeat center center fixed;
+	background: url(image-path("cheetah-bg.jpg")) no-repeat center center fixed;
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	  background-size: cover;
 	h1 {
-	  	margin-top: 100px;
-	  	font-size: 96px;
+	  	margin-top: 150px;
+	  	font-size: 140px;
 	  	color: white;
-	  }
-	  h2 {
-	  	font-size: 48px;
+	  	font-family: 'Rock Salt', cursive;
+	  	text-shadow: rgba(0, 0, 0, 0.580392) 0px 8px 8px;
+	 
 	  }
 	  .btn {
-	  	width: 100%;
-	  	margin: 3px auto;
-	  	
+	  	width: 300px;
+	  	margin: 3px 20px;
+	  	border-radius: 0;
+	  	padding: 20px 10px;
+	  	font-size: 30px;
+	  	font-family: 'Rock Salt', cursive;
+	  	box-shadow: rgba(0, 0, 0, 0.580392) 0 10px 10px;
 	  }
 	  .center-block {
-	  	width: 200px;
+	  	width: 700px;
+	  	margin-top: 100px;
+	  }
+	  #sign-up {
+	  	background-color: #FF479E;
+	  	border: #FF479E; 
+	  	color: white;
 	  }
 	  body {
 	  	background-color: transparent;
