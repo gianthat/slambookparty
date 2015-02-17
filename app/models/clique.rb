@@ -2,10 +2,11 @@
 #
 # Table name: cliques
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  queen_bee_id :integer
 #
 
 class Clique < ActiveRecord::Base

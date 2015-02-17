@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216232028) do
+ActiveRecord::Schema.define(version: 20150217165735) do
 
   create_table "cliques", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",         limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "queen_bee_id", limit: 4
   end
 
   create_table "entries", force: :cascade do |t|
@@ -27,9 +28,12 @@ ActiveRecord::Schema.define(version: 20150216232028) do
     t.datetime "updated_at",               null: false
   end
 
+  add_index "entries", ["page_id"], name: "index_entries_on_page_id", using: :btree
+  add_index "entries", ["user_id"], name: "index_entries_on_user_id", using: :btree
+
   create_table "pages", force: :cascade do |t|
     t.integer  "slambook_id", limit: 4
-    t.string   "type",        limit: 255
+    t.string   "page_type",   limit: 255
     t.string   "title",       limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false

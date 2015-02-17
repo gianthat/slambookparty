@@ -17,8 +17,8 @@ class Slambook < ActiveRecord::Base
 	after_create :create_default_pages
 
 	def create_default_pages
-		#create a free page
-		#create a page for the owner
+		self.pages.create(title: "Free page, write anything you want!", page_type: "free")
+		#create a page for the clique.queen_bee
 	end
 
 end
