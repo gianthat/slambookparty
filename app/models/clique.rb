@@ -12,4 +12,15 @@ class Clique < ActiveRecord::Base
 
 	has_one :slambook, dependent: :destroy
 
+	validates :name, presence: true
+	validates :name, uniqueness: true
+
+	after_create :create_slambook
+
+	def create_slambook
+		Slambook.create(clique_id: id)
+	end
+
+	#after a new user joins the clique, a page should be created for her in the slambook
+
 end

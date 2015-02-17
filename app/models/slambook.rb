@@ -14,4 +14,11 @@ class Slambook < ActiveRecord::Base
 	belongs_to :clique
 	has_many :pages, dependent: :destroy
 
+	after_create :create_default_pages
+
+	def create_default_pages
+		#create a free page
+		#create a page for the owner
+	end
+
 end

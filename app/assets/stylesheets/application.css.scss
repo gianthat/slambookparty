@@ -17,20 +17,38 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
 
- .home-page {
-
+html {
 	background: url(image-path("cheetah-bg.jpg")) no-repeat center center fixed;
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	  background-size: cover;
+	height: 100%;
+}
+
+body {
+	background: white;
+	margin: 50px;
+	padding: 50px;
+	border-radius: 15px;
+	sheight: 100%;
+}
+
+ .home-page {
+	background: url(image-path("cheetah-bg.jpg")) no-repeat center center fixed;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	body {
+	  	background-color: transparent;
+	  }
 	h1 {
 	  	margin-top: 150px;
 	  	font-size: 140px;
 	  	color: white;
 	  	font-family: 'Rock Salt', cursive;
 	  	text-shadow: rgba(0, 0, 0, 0.580392) 0px 8px 8px;
-	 
 	  }
 	  .btn {
 	  	width: 300px;
@@ -38,8 +56,10 @@
 	  	border-radius: 0;
 	  	padding: 20px 10px;
 	  	font-size: 30px;
+	  	font-weight: 600;
 	  	font-family: 'Rock Salt', cursive;
 	  	box-shadow: rgba(0, 0, 0, 0.580392) 0 10px 10px;
+	  	color: #FF479E;
 	  }
 	  .center-block {
 	  	width: 700px;
@@ -47,11 +67,11 @@
 	  }
 	  #sign-up {
 	  	background-color: #FF479E;
-	  	border: #FF479E; 
+	  	border: #FF479E;
 	  	color: white;
-	  }
-	  body {
-	  	background-color: transparent;
+	  	&:hover {
+	  		background-color: #E6408E;
+	  	}
 	  }
  }
 
