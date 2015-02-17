@@ -12,6 +12,8 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :queen_bee_id, :value => current_user.id%>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

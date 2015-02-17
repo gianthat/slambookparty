@@ -18,6 +18,10 @@ class Clique < ActiveRecord::Base
 
 	after_create :create_slambook
 
+	def queen_bee
+		User.find_by(id: self.queen_bee_id)
+	end
+
 	def create_slambook
 		Slambook.create(clique_id: id)
 	end

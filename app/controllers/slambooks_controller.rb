@@ -1,28 +1,20 @@
 class SlambooksController < ApplicationController
   before_action :set_slambook, only: [:show, :edit, :update, :destroy]
 
-  # GET /slambooks
-  # GET /slambooks.json
   def index
     @slambooks = Slambook.all
   end
 
-  # GET /slambooks/1
-  # GET /slambooks/1.json
   def show
   end
 
-  # GET /slambooks/new
   def new
     @slambook = Slambook.new
   end
 
-  # GET /slambooks/1/edit
   def edit
   end
 
-  # POST /slambooks
-  # POST /slambooks.json
   def create
     @slambook = Slambook.new(slambook_params)
 
@@ -37,8 +29,6 @@ class SlambooksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /slambooks/1
-  # PATCH/PUT /slambooks/1.json
   def update
     respond_to do |format|
       if @slambook.update(slambook_params)
@@ -51,8 +41,6 @@ class SlambooksController < ApplicationController
     end
   end
 
-  # DELETE /slambooks/1
-  # DELETE /slambooks/1.json
   def destroy
     @slambook.destroy
     respond_to do |format|
@@ -62,13 +50,13 @@ class SlambooksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_slambook
       @slambook = Slambook.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def slambook_params
-      params.require(:slambook).permit(:name)
+      params.require(:slambook).permit(:clique_id)
     end
 end

@@ -3,7 +3,6 @@
 # Table name: slambooks
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
 #  clique_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -18,7 +17,11 @@ class Slambook < ActiveRecord::Base
 
 	def create_default_pages
 		self.pages.create(title: "Free page, write anything you want!", page_type: "free")
-		#create a page for the clique.queen_bee
+		self.pages.create(title: "#{self.clique.queen_bee.name_with_initial}", page_type: "personal")
+	end
+
+	def name
+		"#{self.clique.name} Slambook"
 	end
 
 end

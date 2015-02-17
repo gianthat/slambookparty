@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
 
 	has_many :entries
 
+	def name_with_initial
+		"#{first_name} #{last_name[0]}."
+	end
+
 end

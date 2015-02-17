@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217165735) do
+ActiveRecord::Schema.define(version: 20150217174806) do
 
   create_table "cliques", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -42,10 +42,9 @@ ActiveRecord::Schema.define(version: 20150217165735) do
   add_index "pages", ["slambook_id"], name: "index_pages_on_slambook_id", using: :btree
 
   create_table "slambooks", force: :cascade do |t|
-    t.string   "name",       limit: 255
     t.integer  "clique_id",  limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "slambooks", ["clique_id"], name: "index_slambooks_on_clique_id", using: :btree

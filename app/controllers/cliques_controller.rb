@@ -60,6 +60,6 @@ class CliquesController < ApplicationController
     end
 
     def clique_params
-      params.require(:clique).permit(:name)
+      params.require(:clique).permit(:name, :queen_bee_id)
     end
 end
