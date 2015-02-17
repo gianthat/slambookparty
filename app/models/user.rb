@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
 	validates :last_name, presence: true
 
 	has_many :entries
+	has_and_belongs_to_many :cliques
 
 	def name_with_initial
 		"#{first_name} #{last_name[0]}."

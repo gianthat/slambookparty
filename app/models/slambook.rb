@@ -17,7 +17,7 @@ class Slambook < ActiveRecord::Base
 
 	def create_default_pages
 		self.pages.create(title: "Free page, write anything you want!", page_type: "free")
-		self.pages.create(title: "#{self.clique.queen_bee.name_with_initial}", page_type: "personal")
+		self.pages.create(title: "All About #{self.clique.queen_bee.name_with_initial}", page_type: "personal")
 	end
 
 	def name

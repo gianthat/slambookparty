@@ -12,6 +12,7 @@
 class Clique < ActiveRecord::Base
 
 	has_one :slambook, dependent: :destroy
+	has_and_belongs_to_many :users
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
