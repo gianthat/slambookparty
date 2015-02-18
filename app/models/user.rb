@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :cliques
 
 	def name_with_initial
-		"#{first_name} #{last_name[0]}."
+		"#{first_name} #{last_name[0]}"
 	end
 
 end

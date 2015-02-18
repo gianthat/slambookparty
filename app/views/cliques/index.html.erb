@@ -1,7 +1,4 @@
-
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Cliques</h1>
+<h1>Cliques</h1>
 
 <table>
   <thead>
@@ -15,9 +12,7 @@
     <% @cliques.each do |clique| %>
       <tr>
         <td><%= clique.name %></td>
-        <td><%= link_to 'Show', clique %></td>
-        <td><%= link_to 'Edit', edit_clique_path(clique) %></td>
-        <td><%= link_to 'Destroy', clique, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Join', clique %></td>
       </tr>
     <% end %>
   </tbody>

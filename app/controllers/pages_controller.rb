@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    @entry = Entry.new
   end
 
   def new

@@ -1,17 +1,22 @@
-<p>
-  <strong>Slambook:</strong>
-  <%= @page.slambook_id %>
-</p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @page.page_type %>
-</p>
+<h1><%= @page.title %></h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @page.title %>
-</p>
+<% @page.entries.each do |entry| %>
+	<p><%= "#{entry.user.name_with_initial} - #{entry.content}" %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
+
+<%= form_for [@entry] do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: "Add your answer", rows: 5, class: "form-control" %>
+  </div>
+  
+  <%= f.hidden_field :page_id, :value => @page.id%>
+  <%= f.hidden_field :user_id, :value => current_user.id%>
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 <%= link_to 'Back', pages_path %>
