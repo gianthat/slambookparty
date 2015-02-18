@@ -1,4 +1,10 @@
 <h1><%= @slambook.name %></h1>
 
-<%= link_to 'Edit', edit_slambook_path(@slambook) %> |
-<%= link_to 'Back', slambooks_path %>
+<p><%= link_to 'Edit', edit_slambook_path(@slambook) %> |
+<%= link_to 'Back', slambooks_path %></p>
+
+<% @slambook.pages.each do |page| %>
+    <p><%= page.title %> <%= link_to 'Show', page %></p>
+<% end %>
+
+<%= link_to 'New Page', new_page_path(slambook_id: @slambook.id) %>

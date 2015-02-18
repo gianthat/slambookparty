@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
+  def homeroom
+    @user = User.find(params[:id])
+  end
+
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
 end

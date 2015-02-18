@@ -11,12 +11,12 @@
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<% if current_user %>
 		<div class="container">
-			<div class="navbar-left">
+			<div id="nav-brand" class="navbar-text navbar-left">
 				<%= link_to "Slambook", root_path %>
 			</div>
 			<div class="navbar-right navbar-text">
 				<span>Yo <%=current_user.first_name%>!</span>
-				<span><%= link_to "Account settings", user_path(current_user) %></span>
+				<span><%= link_to "Account", user_path(current_user) %></span>
 				<span><%= link_to destroy_user_session_path, method: :delete do%>Sign out<% end %></span>
 			</div>
 		</div>
