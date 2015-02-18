@@ -17,6 +17,16 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
 
+// Lisa Frank Colors
+$white:			#FFFFFF; 
+$pink:		 	#F83E7F;
+$orange: 		#ff7602;
+$yellow:		#fefa27;
+$green:			#509916;
+$blue:			#00b2f0;
+$plum:			#7c2583;
+$purple:		#752a8f;
+
 html {
 	background: url(image-path("rainbow-stars.jpg")) no-repeat center center fixed;
 	  -webkit-background-size: cover;
@@ -68,6 +78,9 @@ body {
 }
 
  .home-page {
+ 	nav {
+ 		display: none;
+ 	}
 	background: url(image-path("rainbow-stars.jpg")) no-repeat center center fixed;
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
@@ -78,43 +91,38 @@ body {
 	  }
 	h1 {
 	  	margin-top: 100px;
-	  	margin-top: 30px;
+	  	margin-top: -30px;
 	  	/*font-size: 140px;*/
 	  	font-size: 200px;
 	  	color: white;
-	  	/*color: #20eee1;*/
-	  	/*font-family: 'Rock Salt', cursive;*/
+	  	letter-spacing: 6px;
 	  	font-family: 'Knewave', cursive;
 	  	text-shadow: rgba(0, 0, 0, 0.580392) 0px 8px 8px;
-	  	/*text-shadow:
-			    -1px -1px 0 #000,
-			    1px -1px 0 #000,
-			    -1px 1px 0 #000,
-			    1px 1px 0 #000;  */ 
+	  	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 	100px #ff00de, 0 0 150px #ff00de;
+	  	text-shadow: 0 0 10px #fff, 0 0 20px #fff;
 	  }
 	  .btn {
 	  	width: 300px;
 	  	margin: 3px 20px;
 	  	border-radius: 0;
+	  	border: none;
 	  	padding: 20px 10px;
 	  	font-size: 30px;
-	  	/*font-weight: 600;*/
-	  	/*font-family: 'Rock Salt', cursive;*/
+	  	letter-spacing: 2px;
 	  	font-family: 'Knewave', cursive;
-	  	box-shadow: rgba(0, 0, 0, 0.580392) 0 10px 10px;
-	  	color: #FF479E;
+	  	color: #b89fc9;
+	  	text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+	  	box-shadow: 0 0 20px #fff;
+	  	&:hover {
+	  		background-color: white;
+	  		box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+	  	}
 	  }
 	  .center-block {
 	  	width: 700px;
 	  	margin-top: 100px;
 	  }
 	  #sign-up {
-	  	background-color: #FF479E;
-	  	border: #FF479E;
-	  	color: white;
-	  	&:hover {
-	  		background-color: #E6408E;
-	  	}
 	  }
  }
 
