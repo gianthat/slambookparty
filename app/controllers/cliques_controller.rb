@@ -50,6 +50,13 @@ class CliquesController < ApplicationController
     end
   end
 
+  def join_clique
+    user = User.find(params[:user_id])
+    clique = Clique.find(params[:clique_id])
+    clique.users << user
+    redirect_to cliques_path, notice: "Cool!  Now you're in #{clique.name}!"
+  end
+
   private
     def set_clique
       @clique = Clique.find(params[:id])

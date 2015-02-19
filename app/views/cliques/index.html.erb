@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>Cliques</h1>
 
 <table>
@@ -12,7 +14,7 @@
     <% @cliques.each do |clique| %>
       <tr>
         <td><%= clique.name %></td>
-        <td><%= link_to 'Join', clique %></td>
+        <td><%= link_to 'Join', join_clique_cliques_path(user_id: current_user.id, clique_id: clique.id), method: :post %></td>
       </tr>
     <% end %>
   </tbody>
@@ -20,4 +22,6 @@
 
 <br>
 
-<%= link_to 'New Clique', new_clique_path %>
+<%= link_to 'Make a new clique', new_clique_path, class: "btn btn-primary" %>
+
+</div>

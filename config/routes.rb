@@ -12,7 +12,14 @@ Rails.application.routes.draw do
 
   resources :pages
 
-  resources :cliques
+  resources :cliques do
+    collection do
+        post "join_clique"
+    end
+  end
+
+  # post "join_clique", to: "cliques#join_clique", as: 'join_clique', via: [:post]
+
 
   resources :slambooks
   
