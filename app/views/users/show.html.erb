@@ -1,7 +1,7 @@
 <h1><%= "#{@user.first_name}'s Account" %></h1>
 
 <p>Email: <%= @user.email %></p>
-<p>Pen Color: <%= @user.pen_color %></p>
+<p>Pen color: <%= @user.pen_color %></p>
 
 <%= link_to 'Edit', edit_user_registration_path(@user) %> | 
 <%= link_to 'Back to Homeroom', homeroom_user_path(@user) %>

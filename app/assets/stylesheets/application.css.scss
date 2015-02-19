@@ -18,7 +18,6 @@
 @import "bootstrap";
 
 // Lisa Frank Colors
-$white:			#FFFFFF; 
 $pink:		 	#F83E7F;
 $orange: 		#ff7602;
 $yellow:		#fefa27;
@@ -26,6 +25,7 @@ $green:			#509916;
 $blue:			#00b2f0;
 $plum:			#7c2583;
 $purple:		#752a8f;
+$black: 		#000;
 
 html {
 	background: url(image-path("rainbow-stars.jpg")) no-repeat center center fixed;
@@ -72,11 +72,14 @@ body {
 	letter-spacing: 3px;
 	 a {
 	 	color: $pink;
+	 	color: white;
 	 }
 	 a:hover {
 	 	text-decoration: none;
 	 }
 }
+
+/* * * * * * * * * * LANDING PAGE * * * * * * * * * */
 
  .home-page {
  	nav {
@@ -131,3 +134,56 @@ body {
 	width: 70%;
 	margin: 100px auto;
 }
+
+/* * * * * * * * * * HANDWRITING * * * * * * * * * */
+
+.pink-text {
+	color: $pink;
+	font-family: 'Waiting for the Sunrise', cursive;
+}
+
+.orange-text {
+	color: $orange;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.yellow-text {
+	color: $yellow;
+	font-family: 'Indie Flower', cursive;
+}
+
+.green-text {
+	color: $green;
+	font-family: 'Waiting for the Sunrise', cursive;
+}
+
+.blue-text {
+	color: $blue;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.purple-text {
+	color: $purple;
+	font-family: 'Indie Flower', cursive;
+}
+
+/* * * * * * * * * * SLAMBOOK SINGLE PAGE * * * * * * * * * */
+
+.pages-page {
+	body {
+		padding: 50px 100px;
+	}
+
+	h1 {
+		font-size: 48px;
+		font-family: 'Indie Flower', cursive;
+		margin-bottom: 40px;
+	}
+
+	p {
+		font-size: 24px;
+		line-height: 2;
+		margin-bottom: 40px;
+	}
+}
+

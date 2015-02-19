@@ -17,7 +17,7 @@
 #  updated_at             :datetime
 #  first_name             :string(255)
 #  last_name              :string(255)
-#  pen_color              :string(255)
+#  pen_color              :string(255)      default("black")
 #  admin                  :boolean          default("0")
 #
 
@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
 
 	has_many :entries
 	has_and_belongs_to_many :cliques
+
+	PEN_COLORS = ["pink", "orange", "yellow", "green", "blue", "purple", "black"]
 
 	def name_with_initial
 		"#{first_name} #{last_name[0]}"
