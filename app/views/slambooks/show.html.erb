@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1><%= @slambook.name %></h1>
 
 <p><%= link_to 'Edit', edit_slambook_path(@slambook) %> |
@@ -8,3 +10,5 @@
 <% end %>
 
 <%= link_to 'New Page', new_page_path(slambook_id: @slambook.id) %>
+
+</div>

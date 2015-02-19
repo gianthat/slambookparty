@@ -1,20 +1,31 @@
+<div class="container">
 
-<h1 class="text-center"><%= @page.title %></h1>
+	<h1 class="text-center"><%= @page.title %></h1>
 
-<% @page.entries.each do |entry| %>
-	<p class="<%= entry.user.pen_color %>-text"><%= "#{entry.content} - #{entry.user.name_with_initial}" %></p>
-<% end %>
+	<% @page.entries.each do |entry| %>
+		<p class="<%= entry.user.pen_color %>-text"><%= "#{entry.content} - #{entry.user.name_with_initial}" %></p>
+	<% end %>
 
 
-<%= form_for [@entry] do |f| %>
-  <div class="form-group">
-    <%= f.text_area :content, placeholder: "Add your answer!", rows: 5, class: "form-control" %>
-  </div>
-  
-  <%= f.hidden_field :page_id, :value => @page.id%>
-  <%= f.hidden_field :user_id, :value => current_user.id%>
+	<%= form_for [@entry] do |f| %>
+	  <div class="form-group">
+	    <%= f.text_area :content, placeholder: "Add your answer!", rows: 5, class: "form-control" %>
+	  </div>
+	  
+	  <%= f.hidden_field :page_id, :value => @page.id%>
+	  <%= f.hidden_field :user_id, :value => current_user.id%>
 
-  <div class="form-group">
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-  </div>
-<% end %>
+	  <div class="form-group">
+	    <%= f.submit "Submit", class: "btn btn-primary" %>
+	  </div>
+	<% end %>
+
+	  <div class="pull-left arrow">
+	    <%= image_tag "arrow-back.png" %>
+	  </div>
+
+	  <div class="pull-right arrow">
+	    <%= image_tag "arrow-next.png" %>
+	  </div>
+
+</div>
