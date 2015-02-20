@@ -11,13 +11,11 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :page_type, :value => "question" %>
+
   <div class="field">
     <%= f.label :slambook_id %><br>
     <%= f.number_field :slambook_id %>
-  </div>
-  <div class="field">
-    <%= f.label :page_type %><br>
-    <%= f.text_field :page_type %>
   </div>
   <div class="field">
     <%= f.label :title %><br>

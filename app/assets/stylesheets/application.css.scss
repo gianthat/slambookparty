@@ -42,7 +42,6 @@ body {
 	  background-size: cover;
 	/*margin: 50px;
 	padding: 50px;*/
-
 	margin-top: 120px;
 	height: 100%;
 }
@@ -52,6 +51,7 @@ body {
 	padding-right: 25px;
 	padding-left: 25px;
 	padding-bottom: 25px;
+	border-radius: 15px;
 }
 
 .content {
@@ -59,12 +59,24 @@ body {
 }
 
 .btn-primary {
-	background-color: $orange;
+	background-color: $pink;
 	color: white;
 	font-family: 'Indie Flower', cursive;
 	font-size: 24px;
 	border: none;
 	letter-spacing: 1px;
+	&:hover {
+		background-color: $plum;
+	}
+}
+
+.btn-default {
+	font-family: 'Indie Flower', cursive;
+	font-size: 24px;
+	letter-spacing: 1px;
+	&:hover {
+		background-color: $plum;
+	}
 }
 
 h1 {
@@ -72,6 +84,13 @@ h1 {
 	font-family: 'Indie Flower', cursive;
 }
 
+.gap-below {
+	margin-bottom: 50px;
+}
+
+.margin-right {
+	margin-right: 15px;
+}
 
 /* * * * * * * * * * NAV BAR * * * * * * * * * */
 
@@ -202,17 +221,25 @@ h1 {
 	body {
 		padding: 50px 100px;
 	}
-
+	.container {
+		padding-right: 50px;
+		padding-left: 50px;
+	}
 	h1 {
 		font-size: 48px;
 		font-family: 'Indie Flower', cursive;
-		margin-bottom: 40px;
+		margin-bottom: 60px;
+		margin-top: 60px;
 	}
 
 	p {
-		font-size: 24px;
+		font-size: 20px;
 		line-height: 2;
 		margin-bottom: 40px;
+	}
+	textarea {
+		font-family: 'Waiting for the Sunrise', cursive;
+		font-size: 20px;
 	}
 }
 
