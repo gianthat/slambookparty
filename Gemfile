@@ -45,6 +45,7 @@ group :development, :test do
 end
 
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'font-awesome-sass', '~> 4.3.1'
 
 gem 'devise', '~> 3.4.0'
 gem 'devise_invitable', '~> 1.3.6'

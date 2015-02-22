@@ -2,10 +2,11 @@
 
 <h1><%= "#{@user.first_name}'s Account" %></h1>
 
+<p>Name: <%= @user.full_name %></p>
 <p>Email: <%= @user.email %></p>
-<p>Pen color: <%= @user.pen_color %></p>
+<p class="gap-below">Pen color: <%= @user.pen_color %></p>
 
-<%= link_to 'Edit', edit_user_registration_path(@user) %> | 
-<%= link_to 'Back to Homeroom', homeroom_user_path(@user) %>
+<%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>
+<%= link_to 'Edit', edit_user_registration_path(@user), class: "btn btn-primary" %> 
 
 </div>

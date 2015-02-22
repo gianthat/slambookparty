@@ -1,19 +1,21 @@
 <div class="container">
 
-<h1><%= "#{@user.first_name}'s Homeroom" %></h1>
+<h1 class="text-center"><%= "#{@user.first_name}'s Homeroom" %></h1>
 
-<p>Hey <%=@user.first_name%>! Welcome to Slambook. Each clique has their own slambook. Start out by joining a clique or starting your own!</p>
+<p class="gap-below">Hey <%=@user.first_name%>! Welcome to Slambook. Each clique has their own slambook. Start out by joining a clique or starting your own!</p>
 
-<h3>Your Cliques</h3>
-	<% if @user.cliques.any? %>
-		<% @user.cliques.each do |clique| %>
-			<p><%= clique.name %></p>
+<div class="list gap-below">
+	<h2>Your Cliques</h2>
+		<% if @user.cliques.any? %>
+			<% @user.cliques.each do |clique| %>
+				<p><%= icon "star"%></i><%= link_to clique.name, clique_path(clique) %></p>
+			<% end %>
+		<% else %>
+			<p>You're not in any cliques yet.</p>
 		<% end %>
-	<% else %>
-		<p>You're not in any cliques yet.</p>
-	<% end %>
+</div>
 
-<%= link_to "Start a clique", new_clique_path, class: "btn btn-info btn-lg" %>
-<%= link_to "Join a clique", cliques_path , class: "btn btn-info btn-lg" %>
+<%= link_to "Start a clique", new_clique_path, class: "btn btn-primary margin-right" %>
+<%= link_to "Join a clique", cliques_path , class: "btn btn-primary" %>
 
 </div>

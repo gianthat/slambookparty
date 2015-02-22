@@ -35,10 +35,14 @@ class User < ActiveRecord::Base
 	has_many :entries
 	has_and_belongs_to_many :cliques
 
-	PEN_COLORS = ["pink", "orange", "yellow", "green", "blue", "purple", "black"]
+	PEN_COLORS = ["pink", "orange", "green", "blue", "purple", "black"]
 
 	def name_with_initial
 		"#{first_name} #{last_name[0]}"
+	end
+
+	def full_name
+		"#{first_name} #{last_name}"
 	end
 
 end

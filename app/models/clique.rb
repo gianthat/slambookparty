@@ -18,6 +18,7 @@ class Clique < ActiveRecord::Base
 	validates :name, uniqueness: true
 
 	after_create :create_slambook
+	after_create :add_queen_bee
 
 	def queen_bee
 		User.find_by(id: self.queen_bee_id)
@@ -27,6 +28,8 @@ class Clique < ActiveRecord::Base
 		Slambook.create(clique_id: id)
 	end
 
-	#after a new user joins the clique, a page should be created for her in the slambook
+	def add_queen_bee
+		self.users << self.queen_bee
+	end
 
 end

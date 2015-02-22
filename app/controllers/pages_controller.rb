@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def new
     @page = Page.new
+    @slambook = Slambook.find_by(id: params[:slambook_id])
   end
 
   def edit

@@ -1,13 +1,16 @@
 <div class="container">
 
-<h1><%= @slambook.name %></h1>
+<h1 class="super-huge text-centered"><%= @slambook.name %></h1>
 
-<p><%= link_to 'Edit', edit_slambook_path(@slambook) %> |
-<%= link_to 'Back', slambooks_path %></p>
 
 <% @slambook.pages.each do |page| %>
     <p><%= page.title %> <%= link_to 'Show', page %></p>
 <% end %>
+
+
+	  <div class="pull-right arrow">
+	    <%= image_tag "arrow-next.png" %>
+	  </div>
 
 <%= link_to 'New Page', new_page_path(slambook_id: @slambook.id) %>
 

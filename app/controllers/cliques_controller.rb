@@ -7,6 +7,7 @@ class CliquesController < ApplicationController
   end
 
   def show
+    @user = current_user
   end
 
   def new
@@ -54,6 +55,7 @@ class CliquesController < ApplicationController
     user = User.find(params[:user_id])
     clique = Clique.find(params[:clique_id])
     clique.users << user
+    clique.slambook.pages.create(title: "All About #{user.name_with_initial}.", page_type: "personal")
     redirect_to cliques_path, notice: "Cool!  Now you're in #{clique.name}!"
   end
 

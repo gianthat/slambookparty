@@ -13,15 +13,14 @@
 
   <%= f.hidden_field :page_type, :value => "question" %>
 
-  <div class="field">
-    <%= f.label :slambook_id %><br>
-    <%= f.number_field :slambook_id %>
+  <%= f.hidden_field :slambook_id, :value => @slambook.id %>
+
+  <div class="form-group">
+    <%= f.label :title, "What do you want to ask?" %><br>
+    <%= f.text_field :title, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <%= f.submit "Make page", class: "btn btn-primary" %>
   </div>
 <% end %>

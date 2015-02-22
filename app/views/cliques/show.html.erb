@@ -1,14 +1,18 @@
-<h1><%= @clique.name %></h1>
+<div class="container">
 
-<h3>Members:</h3>
+	<h1 class="text-center"><%= @clique.name %></h1>
 
-<% @clique.users.each do |user| %>
-	<p><%= user.name_with_initial %></p>
-<% end %>
+	<div class="list gap-below">
+		<h3>Members:</h3>
+
+		<% @clique.users.each do |user| %>
+			<p><%= icon "star"%></i><%= user.name_with_initial %></p>
+		<% end %>
+	</div>
 
 
+	<%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>
 
-<%= link_to 'Edit', edit_clique_path(@clique) %> |
-<%= link_to 'Back', cliques_path %>
+	<%= link_to 'Go To Slambook', slambook_path(@clique.slambook) %>
 
-<p><%= link_to 'Go To Slambook', slambook_path(@clique.slambook) %></p>
+</div>
