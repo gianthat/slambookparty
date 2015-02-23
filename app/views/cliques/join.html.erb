@@ -9,11 +9,11 @@
 
 <% end %>
 
-<%= form_tag join_clique_cliques_path do  %>
+<%= form_tag join_clique_clique_path do  %>
 
 	<%= hidden_field_tag "user_id", current_user.id%>
 
-	<%= hidden_field_tag "clique_id",  @clique.id%>
+	<%#= hidden_field_tag "clique_id",  @clique.id%>
 
 	 <div class="form-group">
 	    <%= label_tag :password, "Password (just letters - don't use punctuation)"%><br>

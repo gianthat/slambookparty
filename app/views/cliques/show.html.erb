@@ -13,9 +13,15 @@
 	</div>
 
 
+	<div class="gap-below">
+		<%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>
 
-	<%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>
+		<%= link_to 'Open the Slambook!', slambook_path(@clique.slambook), class: "btn btn-primary" %>
+	</div>
 
-	<%= link_to 'Open the Slambook!', slambook_path(@clique.slambook), class: "btn btn-primary" %>
+	<h3 class="margin-below">Want to leave the clique?</h3>
+
+	<%= link_to 'Peace out, jerks', leave_clique_clique_path(user_id: current_user.id), method: :post, class: "btn btn-primary" %>
+
 
 </div>

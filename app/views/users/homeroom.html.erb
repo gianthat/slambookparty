@@ -2,13 +2,18 @@
 
 <h1 class="text-center"><%= "#{@user.first_name}'s Homeroom" %></h1>
 
-<p class="gap-below">Hey <%=@user.first_name%>! Welcome to Slambook. Each clique has their own slambook. Start out by joining a clique or starting your own!</p>
+<p>Hey <%=@user.first_name%>! Welcome to Slambook. Each clique has their own slambook. Start out by joining a clique or starting your own!</p>
+
+<p class="gap-below">Go to the clique page to read the slambook.</p>
 
 <div class="list gap-below">
 	<h2>Your Cliques</h2>
 		<% if @user.cliques.any? %>
 			<% @user.cliques.each do |clique| %>
-				<p><%= icon "star"%></i><%= link_to clique.name, clique_path(clique) %></p>
+				<p>
+					<%= icon "star"%></i><%= link_to clique.name, clique_path(clique) %>
+					<span class="margin-left edit-link"><%= link_to "Edit", edit_clique_path(clique) if @user == clique.queen_bee %></span>
+				</p>
 			<% end %>
 		<% else %>
 			<p>You're not in any cliques yet.</p>

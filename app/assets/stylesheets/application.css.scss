@@ -51,6 +51,17 @@ body {
 	position: relative;
 }
 
+.alert-info {
+	border: solid 1px white;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+}
+
+.close {
+	opacity: 1;
+}
+
 .btn-primary {
 	background-color: $pink;
 	color: white !important;
@@ -155,6 +166,9 @@ a:hover  {
 		margin-left: 20px;
 		color: white;
 		text-transform: uppercase;
+	}
+	.dropdown-menu a {
+		color: white;
 	}
 	span {
 		margin-left: 10px;
@@ -320,4 +334,8 @@ a:hover  {
 	p {
 		font-size: 16px;
 	}
+}
+
+.edit-link {
+	font-size: 14px;
 }

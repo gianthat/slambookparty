@@ -15,9 +15,8 @@ Rails.application.routes.draw do
   resources :cliques do
     member do
       get "join"
-    end
-    collection do
-        post "join_clique"
+      post "join_clique"
+      post "leave_clique"
     end
   end
 

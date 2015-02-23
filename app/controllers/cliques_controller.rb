@@ -1,5 +1,5 @@
 class CliquesController < ApplicationController
- before_action :set_clique, only: [:show, :edit, :update, :destroy, :join]
+ before_action :set_clique, only: [:show, :edit, :update, :destroy, :join, :join_clique, :leave_clique]
   
 
   def index
@@ -60,15 +60,22 @@ class CliquesController < ApplicationController
 
   def join_clique
     @user = User.find(params[:user_id])
-    @clique = Clique.find(params[:clique_id])
     password_attempt = params[:password_attempt].downcase
     if password_attempt == @clique.password.downcase
       @clique.users << @user
-      @clique.slambook.pages.create(title: "All About #{@user.name_with_initial}.", page_type: "member")
+      unless @clique.slambook.pages.where(title: "All About #{@user.name_with_initial}.").exists?
+        @clique.slambook.pages.create(title: "All About #{@user.name_with_initial}.", page_type: "member")
+      end
       redirect_to homeroom_user_path(@user), notice: "Cool!  Now you're a member of #{@clique.name}!"
     else
       redirect_to :back, notice: "That's not the right password. If you don't know it ask #{@clique.queen_bee.first_name}"
     end
+  end
+
+  def leave_clique
+    @user = User.find(params[:user_id])
+    @clique.users.delete(@user)
+    redirect_to homeroom_user_path(@user), notice: "Good riddance. You didn't need them anyway!"
   end
 
   private
