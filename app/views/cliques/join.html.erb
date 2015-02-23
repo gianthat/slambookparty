@@ -1,0 +1,30 @@
+<div class="container page-container">
+<h1>Join <%= @clique.name%> </h1>
+
+<p class="margin-below">Cool! Just enter the correct password to join the clique</p>
+
+<% if @clique.clue? %>
+<p>Here's a clue:</p>
+<p class="margin-below pink-reg"><%= @clique.clue %></p>
+
+<% end %>
+
+<%= form_tag join_clique_cliques_path do  %>
+
+	<%= hidden_field_tag "user_id", current_user.id%>
+
+	<%= hidden_field_tag "clique_id",  @clique.id%>
+
+	 <div class="form-group">
+	    <%= label_tag :password, "Password (just letters - don't use punctuation)"%><br>
+	    <%= text_field_tag :password_attempt, nil, class: "form-control" %>
+	 </div>
+
+
+	<%= link_to 'Cancel', cliques_path, class: "btn btn-default" %>
+
+	<%= submit_tag 'Join', class: "btn btn-primary margin-left" %>
+
+<% end %>
+
+</div>

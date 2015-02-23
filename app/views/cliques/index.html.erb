@@ -1,24 +1,22 @@
 <div class="container page-container">
 
-<h1>Cliques</h1>
+<h1>Cliques you're not in yet</h1>
 
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Started by</th>
-      <th>Members</th>
       <th>Want in?</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @cliques.each do |clique| %>
+    <% @unjoined_cliques.each do |clique| %>
       <tr>
         <td><%= clique.name %></td>
         <td><%= clique.queen_bee.name_with_initial %></td>
-        <td><%= clique.users.count %> </td>
-        <td><%= link_to 'Join', join_clique_cliques_path(user_id: current_user.id, clique_id: clique.id), method: :post %></td>
+        <td><%= link_to 'Join', join_clique_path(clique)%></td>
       </tr>
     <% end %>
   </tbody>

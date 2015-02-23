@@ -1,9 +1,16 @@
 class CliquesController < ApplicationController
-  before_action :set_clique, only: [:show, :edit, :update, :destroy]
+ before_action :set_clique, only: [:show, :edit, :update, :destroy, :join]
   
 
   def index
     @cliques = Clique.all
+    @current_cliques = current_user.cliques.all
+    @unjoined_cliques = Clique.all - @current_cliques
+  end
+
+  def join
+    @cliques = Clique.all
+    @clique = Clique.find(params[:id])
   end
 
   def show
@@ -52,11 +59,16 @@ class CliquesController < ApplicationController
   end
 
   def join_clique
-    user = User.find(params[:user_id])
-    clique = Clique.find(params[:clique_id])
-    clique.users << user
-    clique.slambook.pages.create(title: "All About #{user.name_with_initial}.", page_type: "member")
-    redirect_to cliques_path, notice: "Cool!  Now you're a member of #{clique.name}!"
+    @user = User.find(params[:user_id])
+    @clique = Clique.find(params[:clique_id])
+    password_attempt = params[:password_attempt].downcase
+    if password_attempt == @clique.password.downcase
+      @clique.users << @user
+      @clique.slambook.pages.create(title: "All About #{@user.name_with_initial}.", page_type: "member")
+      redirect_to homeroom_user_path(@user), notice: "Cool!  Now you're a member of #{@clique.name}!"
+    else
+      redirect_to :back, notice: "That's not the right password. If you don't know it ask #{@clique.queen_bee.first_name}"
+    end
   end
 
   private

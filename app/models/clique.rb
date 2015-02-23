@@ -27,7 +27,7 @@ class Clique < ActiveRecord::Base
 	after_create :create_slambook
 	after_create :add_queen_bee
 
-	attr_accessor :password_confirmation
+	attr_accessor :password_confirmation, :password_attempt
 
 	def queen_bee
 		User.find_by(id: self.queen_bee_id)
