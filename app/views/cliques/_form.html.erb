@@ -1,5 +1,6 @@
 
 <%= form_for(@clique) do |f| %>
+
   <% if @clique.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@clique.errors.count, "error") %> prohibited this clique from being saved:</h2>
@@ -14,11 +15,33 @@
 
   <%= f.hidden_field :queen_bee_id, :value => current_user.id%>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, "Clique name" %><br>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div id="password-explanation" class="margin-below">
+  <h3 class="margin-below">Password</h3>
+  <p>Choose a password for the clique. Members will need to know the password to join the clique. </p>
+  <p>Then write a clue to help members guess the password. for example:</p>
+    <p class="margin-left pink-text">Password clue: "What tv show do we all watch together at Rebecca's house?" </p>
+    <p class="margin-left pink-text">Password: "Girls" </p>
+  <p>Of course, you can also just tell your friends the password!</p>
+  </div>
+
+    <div class="form-group">
+    <%= f.label :password, "Password (just letters - don't use punctuation)"%><br>
+    <%= f.text_field :password, class: "form-control" %>
+  </div>
+    <div class="form-group">
+    <%= f.label :password_confirmation, "Enter the password again" %><br>
+    <%= f.text_field :password_confirmation, class: "form-control" %>
+  </div>
+    <div class="form-group">
+    <%= f.label :clue, "Password clue" %><br>
+    <%= f.text_field :clue, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Create clique", class: "btn btn-primary" %>
   </div>
 <% end %>

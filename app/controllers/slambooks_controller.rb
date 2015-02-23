@@ -6,6 +6,7 @@ class SlambooksController < ApplicationController
   end
 
   def show
+    @first_page = @slambook.pages_in_order[0]
   end
 
   def new

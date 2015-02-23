@@ -4,7 +4,7 @@
 
 <p>Name: <%= @user.full_name %></p>
 <p>Email: <%= @user.email %></p>
-<p class="gap-below">Pen color: <%= @user.pen_color %></p>
+<p class="gap-below">Pen color: <span class="<%= @user.pen_color %>-text"><%= @user.pen_color %></span></p>
 
 <%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>
 <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn btn-primary" %> 

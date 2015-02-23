@@ -7,6 +7,8 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  queen_bee_id :integer
+#  password     :string(255)
+#  clue         :text(65535)
 #
 
 class Clique < ActiveRecord::Base
@@ -17,8 +19,15 @@ class Clique < ActiveRecord::Base
 	validates :name, presence: true
 	validates :name, uniqueness: true
 
+	validates :password, confirmation: true
+	validates :password_confirmation, presence: true
+
+	validates :clue, presence: true
+
 	after_create :create_slambook
 	after_create :add_queen_bee
+
+	attr_accessor :password_confirmation
 
 	def queen_bee
 		User.find_by(id: self.queen_bee_id)

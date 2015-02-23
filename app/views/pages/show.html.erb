@@ -8,26 +8,30 @@
 		<% end %>
 	</div>
 
+	<%= render "entries/form" %>
 
-	<%= form_for [@entry] do |f| %>
-	  <div class="form-group">
-	    <%= f.text_area :content, placeholder: "Add your answer!", rows: 5, class: "form-control" %>
-	  </div>
-	  
-	  <%= f.hidden_field :page_id, :value => @page.id%>
-	  <%= f.hidden_field :user_id, :value => current_user.id%>
+	<div class="pull-left arrow">
+		<% unless @previous_page == nil %>
+			<%= link_to page_path(@previous_page) do %>
+				<%= image_tag "arrow-back.png" %>
+			<% end %>
+		<% else %>
+			<%= link_to slambook_path(@page.slambook) do %>
+				<%= image_tag "arrow-back.png" %>
+			<% end %>
+		<% end %>
+	</div>
 
-	  <div class="form-group">
-	    <%= f.submit "Submit", class: "btn btn-primary" %>
-	  </div>
-	<% end %>
-
-	  <div class="pull-left arrow">
-	    <%= image_tag "arrow-back.png" %>
-	  </div>
-
-	  <div class="pull-right arrow">
-	    <%= image_tag "arrow-next.png" %>
-	  </div>
+	<div class="pull-right arrow">
+		<% unless @next_page == nil %>
+			<%= link_to page_path(@next_page) do %>
+				<%= image_tag "arrow-next.png" %>
+			<% end %>
+		<% else %>
+			<%= link_to new_page_path(slambook_id: @page.slambook.id) do %>
+				<%= image_tag "arrow-next.png" %>
+			<% end %>
+		<% end %>
+	</div>
 
 </div>

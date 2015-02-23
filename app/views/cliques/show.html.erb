@@ -2,6 +2,8 @@
 
 	<h1 class="text-center"><%= @clique.name %></h1>
 
+	<h3 class="gap-below">Password: <%= @clique.password %></h3>
+
 	<div class="list gap-below">
 		<h3>Members:</h3>
 
@@ -9,6 +11,7 @@
 			<p><%= icon "star"%></i><%= user.name_with_initial %><span><%= "(Queen Bee)" if @clique.queen_bee == user%></span></p>
 		<% end %>
 	</div>
+
 
 
 	<%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>

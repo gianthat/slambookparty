@@ -4,10 +4,12 @@
 <h1 class="super-huge text-center">Slambook</h1>
 
 
-	  <div class="pull-right arrow">
-	    <%= image_tag "arrow-next.png" %>
-	  </div>
+<div class="pull-right arrow">
+	<%= link_to page_path(@first_page) do %>
+		<%= image_tag "arrow-next.png" %>
+	<% end %>
+</div>
 
-<%= link_to 'New Page', new_page_path(slambook_id: @slambook.id) %>
+<%#= link_to 'New Page', new_page_path(slambook_id: @slambook.id) %>
 
 </div>

@@ -7,6 +7,8 @@ class PagesController < ApplicationController
 
   def show
     @entry = Entry.new
+    @next_page = @page.next
+    @previous_page = @page.previous
   end
 
   def new
