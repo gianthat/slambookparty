@@ -1,8 +1,12 @@
-<div class="container">
-	<h1>New Page</h1>
+<div class="container page-container">
+	<h1 class="text-center">Add your own page!</h1>
 
 	<%= render 'form' %>
 
-	<%= link_to 'Back', slambook_path(@slambook) %>
+	<div class="pull-right arrow">
+		<%= link_to slambook_path(@slambook) do %>
+			<%= image_tag "arrow-next.png" %>
+		<% end %>
+	</div>
 
 </div>

@@ -16,8 +16,7 @@
   <%= f.hidden_field :slambook_id, :value => @slambook.id %>
 
   <div class="form-group">
-    <%= f.label :title, "What do you want to ask?" %><br>
-    <%= f.text_field :title, class: "form-control"%>
+    <%= f.text_area :title, placeholder: "What do you want to ask?", rows: 5, class: "form-control" %>
   </div>
 
   <div class="form-group">

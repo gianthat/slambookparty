@@ -48,12 +48,13 @@ body {
 	height: 100%;
 }
 
-.container {
+.page-container {
 	background-color: white;
 	padding-right: 25px;
 	padding-left: 25px;
 	padding-bottom: 25px;
 	border-radius: 15px;
+	height: 100%;
 }
 
 .content {
@@ -89,6 +90,10 @@ h1, h2, h3 {
 	font-family: 'Gloria Hallelujah', cursive;
 }
 
+.devise-h2 {
+	margin-bottom: 30px;
+}
+
 p {
 	font-size: 18px;
 	font-family: 'Gloria Hallelujah', cursive;
@@ -115,6 +120,9 @@ th {
 		margin-bottom: 20px;
 		margin-left: 20px;
 	}
+	span {
+		margin-left: 10px;
+	}
 }
 
 .fa-star {
@@ -132,15 +140,18 @@ a:hover  {
 	border-bottom: solid 2px $plum;
 }
 
+.super-huge {
+	font-size: 84px;
+}
 
 /* * * * * * * * * * NAV BAR * * * * * * * * * */
 
 .navbar {
 	background: black;
-	.container {
+	/*.container {
 		background-color: black;
 		padding-bottom: 0;
-	}
+	}*/
 	span {
 		font-size: 16px;
 		margin-left: 20px;
@@ -268,7 +279,7 @@ a:hover  {
 		margin-top: 60px;
 	}
 
-	p {
+	.entries p {
 		font-size: 20px;
 		line-height: 2;
 		margin-bottom: 40px;

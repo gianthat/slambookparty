@@ -1,11 +1,7 @@
-<div class="container">
+<div class="container page-container">
 
-<h1 class="super-huge text-centered"><%= @slambook.name %></h1>
-
-
-<% @slambook.pages.each do |page| %>
-    <p><%= page.title %> <%= link_to 'Show', page %></p>
-<% end %>
+<h1 class="super-huge text-center"><%= @slambook.clique.name %></h1>
+<h1 class="super-huge text-center">Slambook</h1>
 
 
 	  <div class="pull-right arrow">

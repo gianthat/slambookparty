@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container page-container">
 
 	<h1 class="text-center"><%= @clique.name %></h1>
 
@@ -6,13 +6,13 @@
 		<h3>Members:</h3>
 
 		<% @clique.users.each do |user| %>
-			<p><%= icon "star"%></i><%= user.name_with_initial %></p>
+			<p><%= icon "star"%></i><%= user.name_with_initial %><span><%= "(Queen Bee)" if @clique.queen_bee == user%></span></p>
 		<% end %>
 	</div>
 
 
 	<%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>
 
-	<%= link_to 'Go To Slambook', slambook_path(@clique.slambook) %>
+	<%= link_to 'Open the Slambook!', slambook_path(@clique.slambook), class: "btn btn-primary" %>
 
 </div>

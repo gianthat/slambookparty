@@ -14,6 +14,6 @@ class Page < ActiveRecord::Base
 	belongs_to :slambook
 	has_many :entries
 
-	PAGE_TYPES = ["free", "question", "person"]
+	PAGE_TYPES = ["free", "question", "member"]
 	
 end

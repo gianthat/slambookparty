@@ -17,11 +17,18 @@ class Slambook < ActiveRecord::Base
 
 	def create_default_pages
 		self.pages.create(title: "Free page, write anything you want!", page_type: "free")
-		self.pages.create(title: "All About #{self.clique.queen_bee.name_with_initial}", page_type: "personal")
+		self.pages.create(title: "All About #{self.clique.queen_bee.name_with_initial}", page_type: "member`")
 	end
 
 	def name
 		"#{self.clique.name} Slambook"
+	end
+
+	def pages_in_order
+		question_pages = self.pages.where(page_type: "question")
+		member_pages = self.pages.where(page_type: "member")
+		free_page = self.pages.where(page_type: "free")
+		question_pages + member_pages + free_page
 	end
 
 end
