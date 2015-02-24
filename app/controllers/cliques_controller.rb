@@ -6,11 +6,12 @@ class CliquesController < ApplicationController
     @cliques = Clique.all
     @current_cliques = current_user.cliques.all
     @unjoined_cliques = Clique.all - @current_cliques
+    authorize @cliques
   end
 
   def join
     @cliques = Clique.all
-    @clique = Clique.find(params[:id])
+    # @clique = Clique.find(params[:id])
   end
 
   def show
@@ -19,6 +20,7 @@ class CliquesController < ApplicationController
 
   def new
     @clique = Clique.new
+    authorize @clique
   end
 
   def edit
@@ -26,7 +28,7 @@ class CliquesController < ApplicationController
 
   def create
     @clique = Clique.new(clique_params)
-
+    authorize @clique
     respond_to do |format|
       if @clique.save
         format.html { redirect_to @clique, notice: 'Yay, the clique has been created!' }
@@ -81,6 +83,7 @@ class CliquesController < ApplicationController
   private
     def set_clique
       @clique = Clique.find(params[:id])
+      authorize @clique
     end
 
     def create_slambook

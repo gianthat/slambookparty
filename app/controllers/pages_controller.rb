@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @entry = Entry.new
     @next_page = @page.next
     @previous_page = @page.previous
+    authorize @page
   end
 
   def new
