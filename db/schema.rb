@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223194443) do
+ActiveRecord::Schema.define(version: 20150224054200) do
 
   create_table "cliques", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(version: 20150223194443) do
     t.integer  "user_id",    limit: 4
     t.integer  "page_id",    limit: 4
     t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.boolean  "anonymous",  limit: 1,     default: false
   end
 
   add_index "entries", ["page_id"], name: "index_entries_on_page_id", using: :btree

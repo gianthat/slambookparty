@@ -56,6 +56,6 @@ class EntriesController < ApplicationController
     end
 
     def entry_params
-      params.require(:entry).permit(:user_id, :page_id, :content)
+      params.require(:entry).permit(:user_id, :page_id, :content, :anonymous)
     end
 end

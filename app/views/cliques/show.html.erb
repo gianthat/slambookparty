@@ -3,8 +3,8 @@
 	<% if @user == @clique.queen_bee %>
 		<h1 class="text-center">
 			<%= @clique.name %>
-			<%= link_to edit_clique_path(@clique) do %>
-            	<i class="glyphicon glyphicon-pencil btn btn-default"></i>
+			<%= link_to edit_clique_path(@clique), class: "pink-hover" do %>
+            	<i class="glyphicon glyphicon-pencil"></i>
         	<% end %>
         </h1>
 	<div class="gap-below">

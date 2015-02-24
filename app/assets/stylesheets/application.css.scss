@@ -153,6 +153,11 @@ a:hover  {
 	font-size: 84px;
 }
 
+.pink-hover:hover {
+	color: $pink;
+	border: none;
+}
+
 /* * * * * * * * * * NAV BAR * * * * * * * * * */
 
 .navbar {
@@ -321,6 +326,11 @@ a:hover  {
 	}
 }
 
+#anonymous-checkbox {
+	font-family: 'Waiting for the Sunrise', cursive;
+	font-size: 18px;
+}
+
 .arrow {
 	margin-top: 50px;
 	img {
@@ -330,12 +340,13 @@ a:hover  {
 
 /* * * * * * * * * * RANDOM TIDBITS * * * * * * * * * */
 
-#password-explanation {
-	p {
-		font-size: 16px;
-	}
-}
 
 .edit-link {
 	font-size: 14px;
+}
+
+h1 .glyphicon-pencil {
+	font-size: 16px;
+	position: relative;
+	top: -25px;
 }
