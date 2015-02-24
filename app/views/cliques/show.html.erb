@@ -1,6 +1,19 @@
 <div class="container page-container">
 
-	<h1 class="text-center"><%= @clique.name %></h1>
+	<% if @user == @clique.queen_bee %>
+		<h1 class="text-center">
+			<%= @clique.name %>
+			<%= link_to edit_clique_path(@clique) do %>
+            	<i class="glyphicon glyphicon-pencil btn btn-default"></i>
+        	<% end %>
+        </h1>
+	<div class="gap-below">
+		<p class="text-center">As the Queen Bee, you can edit this clique</p>
+	</div>
+
+	<% else %>
+		<h1 class="text-center"><%= @clique.name %></h1>
+	<% end %>
 
 	<h3 class="gap-below">Password: <%= @clique.password %></h3>
 
@@ -14,14 +27,16 @@
 
 
 	<div class="gap-below">
-		<%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>
-
-		<%= link_to 'Open the Slambook!', slambook_path(@clique.slambook), class: "btn btn-primary" %>
+		<h3><%= @clique.slambook.name %></h3>
+		<%= link_to 'Open it!', slambook_path(@clique.slambook), class: "btn btn-primary" %>
 	</div>
 
-	<h3 class="margin-below">Want to leave the clique?</h3>
+	<div class="gap-below">
+		<h3 class="margin-below">Want to leave the clique?</h3>
+		<%= link_to 'Peace out, jerks', leave_clique_clique_path(user_id: current_user.id), method: :post, class: "btn btn-primary" %>
+	</div>
 
-	<%= link_to 'Peace out, jerks', leave_clique_clique_path(user_id: current_user.id), method: :post, class: "btn btn-primary" %>
+	<%= link_to 'Back to Homeroom', homeroom_user_path(@user), class: "btn btn-default margin-right" %>
 
 
 </div>
