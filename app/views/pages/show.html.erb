@@ -4,7 +4,14 @@
 
 	<div class="entries">
 		<% @page.entries.each do |entry| %>
-			<p class="<%= entry.user.pen_color %>-text"><%= "#{entry.content} - #{entry.user.name_with_initial}" %></p>
+			<p class="<%= entry.user.pen_color %>-text">
+				<%= "#{entry.content} - #{entry.user.name_with_initial}" %>
+				<% if entry.user == current_user %>
+					<%= link_to entry_path(entry), data: { confirm: "You really want to delete your entry?" }, method: :delete, class: "btn btn-default margin-left" do %>
+		            	<i class="glyphicon glyphicon-trash"></i>
+		        	<% end %>
+	        	<% end %>
+	        </p>
 		<% end %>
 	</div>
 

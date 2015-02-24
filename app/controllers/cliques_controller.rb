@@ -29,7 +29,7 @@ class CliquesController < ApplicationController
 
     respond_to do |format|
       if @clique.save
-        format.html { redirect_to @clique, notice: 'Clique was successfully created.' }
+        format.html { redirect_to @clique, notice: 'Yay, the clique has been created!' }
         format.json { render :show, status: :created, location: @clique }
       else
         format.html { render :new }
@@ -41,7 +41,7 @@ class CliquesController < ApplicationController
   def update
     respond_to do |format|
       if @clique.update(clique_params)
-        format.html { redirect_to @clique, notice: 'Clique was successfully updated.' }
+        format.html { redirect_to @clique, notice: 'Great, the clique was edited.' }
         format.json { render :show, status: :ok, location: @clique }
       else
         format.html { render :edit }

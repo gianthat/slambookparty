@@ -22,8 +22,6 @@ class Clique < ActiveRecord::Base
 	validates :password, confirmation: true
 	validates :password_confirmation, presence: true
 
-	validates :clue, presence: true
-
 	after_create :create_slambook
 	after_create :add_queen_bee
 
