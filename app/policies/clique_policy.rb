@@ -5,6 +5,7 @@ def index?
 end
 
 def show?
+	return true if user.present? && user.admin?
 	user.present? && clique.users.exists?(user.id)
 end
 
@@ -13,7 +14,24 @@ end
  end
 
 def update?
+	return true if user.present? && user.admin?
 	user.present? && clique.queen_bee == user
+end
+
+def destroy?
+	user.present? && user.admin?
+end
+
+def join?
+	true
+end
+
+def join_clique?
+	true
+end
+
+def leave_clique?
+	true
 end
 
 private

@@ -1,5 +1,6 @@
 class SlambooksController < ApplicationController
   before_action :set_slambook, only: [:show, :destroy]
+  after_action :verify_authorized
 
 
   def show
@@ -9,6 +10,7 @@ class SlambooksController < ApplicationController
 
   def create
     @slambook = Slambook.new(slambook_params)
+      authorize @slambook
 
     respond_to do |format|
       if @slambook.save
@@ -33,6 +35,7 @@ class SlambooksController < ApplicationController
 
     def set_slambook
       @slambook = Slambook.find(params[:id])
+      authorize @slambook
     end
 
 

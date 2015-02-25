@@ -1,6 +1,7 @@
 class CliquesController < ApplicationController
  before_action :set_clique, only: [:show, :edit, :update, :destroy, :join, :join_clique, :leave_clique]
-  
+   after_action :verify_authorized
+
 
   def index
     @cliques = Clique.all

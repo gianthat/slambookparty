@@ -1,7 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
 
 	def edit
+		@user = User.find(params[:format])
 		@pen_colors = User::PEN_COLORS
+		authorize @user
 	end
 
 protected

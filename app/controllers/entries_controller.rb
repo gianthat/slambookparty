@@ -1,8 +1,11 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+    after_action :verify_authorized
+
 
   def index
     @entries = Entry.all
+    authorize @entries
   end
 
   def show
@@ -10,6 +13,7 @@ class EntriesController < ApplicationController
 
   def new
     @entry = Entry.new
+    authorize @entry
   end
 
   def edit
@@ -17,7 +21,7 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
-
+    authorize @entry
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry.page }
@@ -53,6 +57,7 @@ class EntriesController < ApplicationController
 
     def set_entry
       @entry = Entry.find(params[:id])
+      authorize @entry
     end
 
     def entry_params

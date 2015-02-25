@@ -1,12 +1,8 @@
-class PagePolicy < ApplicationPolicy
-
-  def index?
-    user.present? && user.admin?
-  end
+class SlambookPolicy < ApplicationPolicy
 
   def show?
 	return true if user.present? && user.admin?
-	record.slambook.clique.users.exists?(user.id)
+	record.clique.users.exists?(user.id)
   end
 
   def create?
