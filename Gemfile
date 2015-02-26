@@ -51,6 +51,8 @@ gem 'devise', '~> 3.4.0'
 gem 'devise_invitable', '~> 1.3.6'
 gem 'upmin-admin', '~> 0.1.01'
 gem 'pundit', '~> 0.3.0'
+# gem 'react-rails', '~> 0.12.2.0'
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
 gem 'capistrano', '~> 3.3.5'
 gem 'capistrano-bundler', '~> 1.1.4'
