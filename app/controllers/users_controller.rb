@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def update
-  	failure
   	@pen_colors = User::PEN_COLORS
       if @user.update(user_params)
           redirect_to @user, notice: 'Update successful!'
