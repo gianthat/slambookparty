@@ -2,12 +2,15 @@ class CliquesController < ApplicationController
  before_action :set_clique, only: [:show, :edit, :update, :destroy, :join, :join_clique, :leave_clique]
    after_action :verify_authorized
 
+    # respond_to :json
 
   def index
     @cliques = Clique.all
     @current_cliques = current_user.cliques.all
     @unjoined_cliques = Clique.all - @current_cliques
     authorize @cliques
+
+     # respond_with Clique.all
   end
 
   def join

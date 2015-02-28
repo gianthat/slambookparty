@@ -4,14 +4,21 @@
 
 	<div class="entries">
 		<% @page.entries.each do |entry| %>
-			<p class="<%= entry.user.pen_color %>-text">
-				<%= entry.display_text %>
 				<% if entry.user == current_user %>
-					<%= link_to entry_path(entry), data: { confirm: "You really want to delete your entry?" }, method: :delete, class: "pink-hover margin-left" do %>
-		            	<i class="glyphicon glyphicon-trash"></i>
-		        	<% end %>
+					<p class="<%= entry.user.pen_color %>-text deleteable-entry">
+						<%= entry.display_text %>
+						<%= link_to entry_path(entry), method: :delete, class: "pink-hover margin-left" do %>
+			            	<i class="glyphicon glyphicon-pencil"></i>
+			        	<% end %>
+						<%= link_to entry_path(entry), data: { confirm: "You really want to delete your entry?" }, method: :delete, class: "pink-hover margin-left" do %>
+			            	<i class="glyphicon glyphicon-trash"></i>
+			        	<% end %>
+		        	</p>
+		        <% else %>
+		        	<p class="<%= entry.user.pen_color %>-text">
+						<%= entry.display_text %>
+		        	</p>
 	        	<% end %>
-	        </p>
 		<% end %>
 	</div>
 
@@ -41,4 +48,7 @@
 		<% end %>
 	</div>
 
-</div>
+	<div id="entries-react-placeholder"></div>
+
+	<%= react_component("Comment", {author: "Kathy", comment: "My girl wants to party all the time"}) %>
+

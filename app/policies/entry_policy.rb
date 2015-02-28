@@ -1,5 +1,9 @@
 class EntryPolicy < ApplicationPolicy
 
+  def index?
+    true
+  end
+
   def show?
     return true if user.present? && user.admin?
     record.slambook.clique.users.exists?(user.id)

@@ -352,3 +352,18 @@ h1 .glyphicon-pencil {
 	position: relative;
 	top: -25px;
 }
+
+.glyphicon-trash {
+	display: none;
+}
+
+.deleteable-entry:hover {
+		.glyphicon-trash, .glyphicon-pencil {
+			display: inline-block;
+			font-size: 16px;
+			color: #AAAAAA;
+			&:hover {
+				color: $pink;
+			}
+		}
+}

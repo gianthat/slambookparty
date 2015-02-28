@@ -5,10 +5,16 @@ class EntriesController < ApplicationController
 
   def index
     @entries = Entry.all
+    respond_to do |format|
+      format.json {render json: @entries }
+    end
     authorize @entries
   end
 
   def show
+    respond_to do |format|
+      format.json {render json: @entry }
+    end
   end
 
   def new
