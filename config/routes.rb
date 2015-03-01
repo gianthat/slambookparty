@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   end
 
   resources :slambooks
+
+  authenticated :user do
+    root to: "users#homeroom", as: :user_root
+  end
   
   root to: "home#index"
 

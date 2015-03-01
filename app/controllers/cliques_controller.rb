@@ -66,8 +66,8 @@ class CliquesController < ApplicationController
 
   def join_clique
     @user = User.find(params[:user_id])
-    password_attempt = params[:password_attempt].downcase
-    if password_attempt == @clique.password.downcase
+    password_attempt = params[:password_attempt].gsub(/\s+/, "").downcase
+    if password_attempt == @clique.password.gsub(/\s+/, "").downcase
       @clique.users << @user
       unless @clique.slambook.pages.where(title: "All About #{@user.name_with_initial}.").exists?
         @clique.slambook.pages.create(title: "All About #{@user.name_with_initial}.", page_type: "member")

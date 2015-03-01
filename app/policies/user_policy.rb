@@ -11,6 +11,7 @@ class UserPolicy < ApplicationPolicy
 	end
 
 	def update?
+		return true if user.present? && user.admin?
 		user.present? && user == record
     end
 

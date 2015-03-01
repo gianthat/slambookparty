@@ -31,6 +31,7 @@ body {
 	  -o-background-size: cover;
 	  background-size: cover;
 	height: 100%;
+	position: relative;
 	color: black;
 }
 
@@ -52,7 +53,7 @@ body {
 }
 
 .alert-info {
-	border: solid 1px white;
+	border: none;
 	background-color: black;
 	color: white;
 	border-radius: 15px;
@@ -60,6 +61,11 @@ body {
 
 .close {
 	opacity: 1;
+	text-shadow: none;
+	&:hover {
+		color: $pink;
+		opacity: 1;
+	}
 }
 
 .btn-primary {
@@ -98,6 +104,7 @@ h1, h2, h3 {
 p {
 	font-size: 18px;
 	font-family: 'Gloria Hallelujah', cursive;
+	line-height: 2;
 }
 
 th {
@@ -106,7 +113,7 @@ th {
 }
 
 .gap-below {
-	margin-bottom: 50px;
+	margin-bottom: 50px !important;
 }
 
 .margin-below {
@@ -119,6 +126,10 @@ th {
 
 .margin-left {
 	margin-left: 15px;
+}
+
+.brand-font {
+	font-family: 'Gloria Hallelujah', cursive;
 }
 
 .list {
@@ -163,6 +174,7 @@ a:hover  {
 /* * * * * * * * * * NAV BAR * * * * * * * * * */
 
 .navbar {
+	border: none;
 	background: black;
 	/*.container {
 		background-color: black;
@@ -195,7 +207,7 @@ a:hover  {
 }
 
 #nav-brand {
-	font-family: 'Knewave', cursive;
+	font-family: 'Gloria Hallelujah', cursive;
 	font-size: 24px;
 	letter-spacing: 3px;
 	 a {
@@ -256,6 +268,9 @@ a:hover  {
 	  	margin-top: 100px;
 	  }
 	  #sign-up {
+	  }
+	  footer {
+	  	display: none;
 	  }
  }
 
@@ -366,4 +381,30 @@ h1 .glyphicon-pencil {
 				color: $pink;
 			}
 		}
+}
+
+.users-page {
+	.page-container {
+		p {
+			margin-bottom: 25px;
+		}
+	}
+}
+
+footer {
+	background: black;
+	color: white;
+	padding: 10px 20px;
+	padding: 10px 0;
+	font-size: 16px;
+	font-family: 'Gloria Hallelujah', cursive;
+	a, a:active, a:hover, a:visited {
+		text-decoration: none;
+	}
+	a, a:visited {
+		color: white;
+	}
+	.glyphicon {
+		font-size: 14px;
+	}
 }

@@ -1,7 +1,9 @@
 <div class="container page-container">
 <h1>Join <%= @clique.name%> </h1>
 
-<p class="margin-below">Cool! Just enter the correct password to join the clique</p>
+<p class="margin-below">Cool! Just enter the clique's password to join.</p>
+
+<p class="margin-below">If you don't know it, ask <%=@clique.queen_bee.name_with_initial %> for the password.</p>
 
 <% if @clique.clue? %>
 <p>Here's a clue:</p>

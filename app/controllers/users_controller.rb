@@ -10,11 +10,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-	@pen_colors = User::PEN_COLORS
+	  @pen_colors = User::PEN_COLORS
   end
 
   def update
   	@pen_colors = User::PEN_COLORS
+    # failure
       if @user.update(user_params)
           redirect_to @user, notice: 'Update successful!'
       else
@@ -25,7 +26,11 @@ class UsersController < ApplicationController
   private
 
   	def set_user
-	  	@user = User.find(params[:id])
+      if params.has_key?(:id)
+        @user = User.find(params[:id])
+      else 
+        @user = current_user
+      end
   	  	authorize @user
   	end
 

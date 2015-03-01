@@ -7,9 +7,6 @@
 				<% if entry.user == current_user %>
 					<p class="<%= entry.user.pen_color %>-text deleteable-entry">
 						<%= entry.display_text %>
-						<%= link_to entry_path(entry), method: :delete, class: "pink-hover margin-left" do %>
-			            	<i class="glyphicon glyphicon-pencil"></i>
-			        	<% end %>
 						<%= link_to entry_path(entry), data: { confirm: "You really want to delete your entry?" }, method: :delete, class: "pink-hover margin-left" do %>
 			            	<i class="glyphicon glyphicon-trash"></i>
 			        	<% end %>

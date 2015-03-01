@@ -2,24 +2,35 @@
 
 <h1 class="text-center"><%= "#{@user.first_name}'s Homeroom" %></h1>
 
-<p>Hey <%=@user.first_name%>! Welcome to Slambook. Each clique has their own slambook. Start out by joining a clique or starting your own!</p>
+<%if @user.sign_in_count < 3 %>
+		<p class="gap-below">Hey <%=@user.first_name%>! Welcome to Slambook. Each clique has their own slambook. Get in on the fun by joining a clique or starting your own! </p>
+	<% end %>
+	<% if @user.cliques.any? %>
+		<div class="list gap-below">
+			<h2>Your Slambooks</h2>
+					<% @user.cliques.each do |clique| %>
+						<p>
+							<%= icon "star"%></i><%= link_to clique.slambook.name, slambook_path(clique.slambook) %>
+						</p>
+					<% end %>
+		</div>
+<% end %>
 
-<p class="gap-below">Go to the clique page to read the slambook.</p>
 
-<div class="list gap-below">
-	<h2>Your Cliques</h2>
-		<% if @user.cliques.any? %>
-			<% @user.cliques.each do |clique| %>
-				<p>
-					<%= icon "star"%></i><%= link_to clique.name, clique_path(clique) %>
-				</p>
+	<div class="list margin-below">
+		<h2>Your Cliques</h2>
+			<% if @user.cliques.any? %>
+				<% @user.cliques.each do |clique| %>
+					<p>
+						<%= icon "star"%></i><%= link_to clique.name, clique_path(clique) %>
+					</p>
+				<% end %>
+			<% else %>
+				<p>You're not in any cliques yet.</p>
 			<% end %>
-		<% else %>
-			<p>You're not in any cliques yet.</p>
-		<% end %>
-</div>
+	</div>
 
-<%= link_to "Start a clique", new_clique_path, class: "btn btn-primary margin-right" %>
-<%= link_to "Join a clique", cliques_path , class: "btn btn-primary" %>
+	<%= link_to "Start a clique", new_clique_path, class: "btn btn-primary margin-right" %>
+	<%= link_to "Join a clique", cliques_path , class: "btn btn-primary" %>
 
-</div>
+</div><!--end container div-->

@@ -6,6 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
 		authorize @user
 	end
 
+
 protected
 
     def after_update_path_for(resource)

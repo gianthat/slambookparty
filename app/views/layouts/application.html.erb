@@ -17,7 +17,7 @@
 				</div>
 
 				<div class="dropdown navbar-right navbar-text">
-				   <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+				   <a class="dropdown-toggle brand-font" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
 				      <%=current_user.first_name%><span class="glyphicon glyphicon-cog"></span>
 				    </a>
 				  <ul class="dropdown-menu" role="menu">
@@ -28,14 +28,13 @@
 				    <li><%= link_to destroy_user_session_path, method: :delete do%>Sign out<% end %></li>
 				  </ul>
 				</div>
-
 			</div>
 			<% else %>
 			<div class="container">
 				<div id="nav-brand" class="navbar-text navbar-left">
 					<%= link_to "Slambook", root_path %>
 				</div>
-				<div class="navbar-right navbar-text">
+				<div class="navbar-right navbar-text brand-font">
 					<span><%= link_to "Log In", new_user_session_path %></span>
 					<span><%= link_to "Sign Up", new_user_registration_path %></span>
 				</div>
@@ -53,5 +52,8 @@
 
 		<%= yield %>
 	</div> <!--content div-->
+	<footer class="text-center">
+		<i class="glyphicon glyphicon-heart margin-right"></i>Built gleefully by <a href="http://www.gianthatworks.com" target="_blank" class="pink-hover">GiantHat</a><i class="glyphicon glyphicon-heart margin-left"></i>
+	</footer>
 </body>
 </html>
