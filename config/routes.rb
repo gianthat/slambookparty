@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   resources :entries
 
-  resources :pages
+  resources :pages do
+    member do
+      get "react_show"
+    end
+  end
 
   resources :cliques do
     member do

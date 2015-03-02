@@ -14,6 +14,14 @@ class PagesController < ApplicationController
     @previous_page = @page.previous
   end
 
+  def react_show
+    @page = Page.find(params[:id])
+    authorize @page
+    @entry = Entry.new
+    @next_page = @page.next
+    @previous_page = @page.previous
+  end
+
   def new
     @page = Page.new
     @slambook = Slambook.find_by(id: params[:slambook_id])

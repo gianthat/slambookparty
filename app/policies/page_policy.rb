@@ -9,6 +9,10 @@ class PagePolicy < ApplicationPolicy
 	record.slambook.clique.users.exists?(user.id)
   end
 
+  def react_show?
+    true
+  end
+
   def create?
     true
   end

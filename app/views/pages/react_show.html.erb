@@ -1,0 +1,10 @@
+<%= react_component("PageContainer", title: @page.title) %>
+
+<div class="entries">
+	<% @page.entries.each do |entry| %>
+	<%= react_component("EntryRow", display_text: entry.display_text, pen_color: entry.user.pen_color) %>
+	<% end %>
+</div>
+
+<%= react_component("BackArrow") %>
+
