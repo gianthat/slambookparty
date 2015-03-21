@@ -411,3 +411,32 @@ footer {
 		font-size: 14px;
 	}
 }
+
+/* * * * * * * * * *  ERROR PAGE * * * * * * * * * */
+
+.errors-html {
+	height: 100%;
+	  background: url(image-path("as_if.png")) no-repeat center center fixed;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	 body {
+	 	height: auto;
+	 	background: transparent;
+	 }
+	 .content {
+	 	padding-top: 250px;
+	 }
+	 h1 {
+	 	color: white;
+	 	font-size: 86px;
+	 	font-family: 'Knewave', cursive;
+	 	span {
+		 	color: $pink;
+		 }
+	 }
+	 footer {
+	 	display: none;
+	 }
+}

@@ -22,5 +22,8 @@ module SlambookParty
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Tells rails to use the app's dynamic error pages instead of static pages in the public directory
+    config.exceptions_app = self.routes
   end
 end
