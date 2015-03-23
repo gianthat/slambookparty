@@ -1,12 +1,2 @@
-<%= react_component("PageContainer", title: @page.title) %>
+<%= react_component("PageContainer", title: @page.title, entries: @page.entries) %>
 
-<!-- <div class="entries">
-	<%# @page.entries.each do |entry| %>
-	<%#= react_component("EntryRow", display_text: entry.display_text, pen_color: entry.user.pen_color) %>
-	<%# end %>
-</div> -->
-
-<%= react_component("EntriesList", entries: @page.entries) %>
-
-<%= react_component("BackArrow") %>
-<%= react_component("NextArrow") %>

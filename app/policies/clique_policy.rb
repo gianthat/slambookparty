@@ -19,7 +19,8 @@ def update?
 end
 
 def destroy?
-	user.present? && user.admin?
+	return true if user.present? && user.admin?
+	user.present? && clique.queen_bee == user
 end
 
 def join?

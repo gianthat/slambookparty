@@ -59,7 +59,7 @@ class CliquesController < ApplicationController
   def destroy
     @clique.destroy
     respond_to do |format|
-      format.html { redirect_to cliques_url, notice: 'Clique was successfully destroyed.' }
+      format.html { redirect_to homeroom_user_path(current_user), notice: 'Clique was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
