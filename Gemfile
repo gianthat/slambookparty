@@ -53,6 +53,7 @@ gem 'upmin-admin', '~> 0.1.01'
 gem 'pundit', '~> 0.3.0'
 # gem 'react-rails', '~> 0.12.2.0'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'active_model_serializers', '~> 0.9.3'
 
 gem 'capistrano', '~> 3.3.5'
 gem 'capistrano-bundler', '~> 1.1.4'

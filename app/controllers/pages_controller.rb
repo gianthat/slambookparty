@@ -5,13 +5,20 @@ class PagesController < ApplicationController
 
   def index
     @pages = Page.all.order(:slambook_id)
+    respond_to do |format|
+      format.json {render json: @pages }
+    end
     authorize @pages
   end
 
   def show
     @entry = Entry.new
+    @entries = @page.entries
     @next_page = @page.next
     @previous_page = @page.previous
+    respond_to do |format|
+      format.json {render json: @page }
+    end
   end
 
   def react_show
