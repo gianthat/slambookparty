@@ -1,2 +1,7 @@
-<%= react_component("PageContainer", title: @page.title, entries: @page.entries) %>
+<%= hidden_field_tag "page_id", @page.id%>
+<%= hidden_field_tag "user_id", current_user.id%>
+
+<div id="page-container-component"></div>
+
+
 
