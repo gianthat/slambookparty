@@ -8,10 +8,11 @@ var PageContainer = React.createClass ({
 	},
 
 	componentDidMount: function () {
-		this.loadEntriesFromServer();
+		this.loadPageDataFromServer();
+		setInterval(this.loadPageDataFromServer, this.props.pollInterval);
 	},
 
-	loadEntriesFromServer: function () {
+	loadPageDataFromServer: function () {
 		$.ajax({
 		url: this.props.url,
 		dataType: 'json',
@@ -27,12 +28,30 @@ var PageContainer = React.createClass ({
 	});
 	},
 
+	handleEntrySubmit: function(entry) {
+		var entries = this.state.entries;
+		var updatedEntries = entries.concat([entry]);
+		this.setState({entries: updatedEntries});
+		$.ajax({
+			url: this.props.postUrl,
+			dataType: 'json',
+			type: 'POST',
+			data: {"entry": entry},
+			success: function(data) {
+				this.loadPageDataFromServer();
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}.bind(this)
+		});
+	},
+
 	render: function () {
 		return (
 			<div className="container page-container">
 				<h1 className="text-center">{this.state.title}</h1>
 				<EntriesList entries={this.state.entries} />
-				<NewEntryForm />
+				<NewEntryForm onEntrySubmit={this.handleEntrySubmit}/>
 				<BackArrow />
 				<NextArrow />
 			</div>
@@ -64,16 +83,19 @@ var EntryRow = React.createClass ({
 var NewEntryForm = React.createClass ({
 
 	handleSubmit: function (e) {
-		var entryInput = this.refs.content.getDOMNode().value;
-		alert(entryInput);
-		//var updatedEntries = this.state.entries.concat([entryInput]); this doesn't make sense here, state is only in the top level component
-		//this is from "using refs" the way it gets the ref is helpful but i don't think we'll need to concat in this project
+		var userId = $("#user_id").val();
+		var pageId = $("#page_id").val();
+		var entryInput = this.refs.content.getDOMNode().value.trim();
+		var anonymous = this.refs.anonymous.getDOMNode().value.trim();
+		this.props.onEntrySubmit({user_id: userId, page_id: pageId, content: entryInput, anonymous: anonymous});
+		this.refs.content.getDOMNode().value = '';
+		this.refs.anonymous.getDOMNode().value = '';
+		return false;
 	},
 
 	render: function () {
 		return (
-			<form>
-				<p>be sure to add page_id and user_id here. hidden fields?</p>
+			<form onSubmit={this.handleSubmit}>
 				<div className="form-group">
 					<textarea rows="5" className="form-control" placeholder="Add your answer!"  ref="content" />
 				</div>
@@ -113,12 +135,11 @@ var NextArrow = React.createClass ({
 
 
 var ready = function () {
-	var current_page = $("#page_id").val();
-	var current_user = $("#user_id").val();
-	var json_url = "/pages/"+ current_page +".json";
+	var currentPage = $("#page_id").val();
+	var jsonUrl = "/pages/"+ currentPage +".json";
 
   React.renderComponent(
-    <PageContainer url={json_url} />,
+    <PageContainer url={jsonUrl} pollInterval={2000} postUrl="/entries.json"/>,
     document.getElementById('page-container-component')
   );
 };

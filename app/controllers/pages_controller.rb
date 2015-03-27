@@ -18,6 +18,7 @@ class PagesController < ApplicationController
     @previous_page = @page.previous
     respond_to do |format|
       format.json {render json: @page }
+      format.html
     end
   end
 
