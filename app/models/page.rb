@@ -31,5 +31,21 @@ class Page < ActiveRecord::Base
 			array[page_index - 1]
 		end
 	end
+
+	def back_url
+		if self.previous == nil
+			"/slambooks/#{self.slambook.id}"
+		else
+			"/pages/#{self.previous.id}"
+		end
+	end
+
+	def next_url
+		if self.next == nil
+			"/pages/new?slambook_id=#{self.slambook.id}"
+		else
+			"/pages/#{self.next.id}"
+		end
+	end
 	
 end

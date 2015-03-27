@@ -20,14 +20,15 @@ class PagesController < ApplicationController
       format.json {render json: @page }
       format.html
     end
+    authorize @page
   end
 
-  def react_show
+  def rails_show
     @page = Page.find(params[:id])
-    authorize @page
     @entry = Entry.new
     @next_page = @page.next
     @previous_page = @page.previous
+    authorize @page
   end
 
   def new

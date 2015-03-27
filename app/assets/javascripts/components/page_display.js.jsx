@@ -20,7 +20,9 @@ var PageContainer = React.createClass ({
 			var pageData = result;
 			var title = pageData["title"];
 			var entries = pageData["entries"];
-			this.setState({title: title, entries: entries})
+			var backUrl = pageData["back_url"];
+			var nextUrl = pageData["next_url"];
+			this.setState({title: title, entries: entries, backUrl: backUrl, nextUrl: nextUrl})
 		}.bind(this),
 		error: function (xhr, status, err) {
 			console.error(this.props.url, status, err.toString());
@@ -49,11 +51,11 @@ var PageContainer = React.createClass ({
 	render: function () {
 		return (
 			<div className="container page-container">
-				<h1 className="text-center">{this.state.title}</h1>
+				<h1 className="text-center">{this.state.title} </h1>
 				<EntriesList entries={this.state.entries} />
-				<NewEntryForm onEntrySubmit={this.handleEntrySubmit}/>
-				<BackArrow />
-				<NextArrow />
+				<NewEntryForm onEntrySubmit={this.handleEntrySubmit} />
+				<BackArrow backUrl={this.state.backUrl} />
+				<NextArrow nextUrl={this.state.nextUrl} />
 			</div>
 			);
 	}
@@ -115,7 +117,9 @@ var BackArrow = React.createClass ({
 	render: function () {
 		return (
 			<div className="pull-left arrow">
-				<img src="/assets/arrow-back.png"></img>
+			<a href={this.props.backUrl}>
+				<img src="/assets/arrow-back.png" alt="Arrow next" />
+			</a>
 			</div>
 			);
 	}
@@ -125,7 +129,9 @@ var NextArrow = React.createClass ({
 	render: function () {
 		return (
 			<div className="pull-right arrow">
-				<img src="/assets/arrow-next.png"></img>
+			<a href={this.props.nextUrl}>
+				<img src="/assets/arrow-next.png" alt="Arrow next" />
+			</a>
 			</div>
 			);
 	}

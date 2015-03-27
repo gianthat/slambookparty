@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :pages do
     member do
-      get "react_show"
+      get "rails_show"
     end
   end
 

@@ -1,49 +1,7 @@
-<div class="container page-container">
+<%= hidden_field_tag "page_id", @page.id%>
+<%= hidden_field_tag "user_id", current_user.id%>
 
-	<h1 class="text-center"><%= @page.title %></h1>
+<div id="page-container-component"></div>
 
-	<div class="entries">
-		<% @page.entries.each do |entry| %>
-				<% if entry.user == current_user %>
-					<p class="<%= entry.user.pen_color %>-text deleteable-entry">
-						<%= entry.display_text %>
-						<%= link_to entry_path(entry), data: { confirm: "You really want to delete your entry?" }, method: :delete, class: "pink-hover margin-left" do %>
-			            	<i class="glyphicon glyphicon-trash"></i>
-			        	<% end %>
-		        	</p>
-		        <% else %>
-		        	<p class="<%= entry.user.pen_color %>-text">
-						<%= entry.display_text %>
-		        	</p>
-	        	<% end %>
-		<% end %>
-	</div>
 
-	<%= render "entries/form" %>
-
-	<div class="pull-left arrow">
-		<% unless @previous_page == nil %>
-			<%= link_to page_path(@previous_page) do %>
-				<%= image_tag "arrow-back.png" %>
-			<% end %>
-		<% else %>
-			<%= link_to slambook_path(@page.slambook) do %>
-				<%= image_tag "arrow-back.png" %>
-			<% end %>
-		<% end %>
-	</div>
-
-	<div class="pull-right arrow">
-		<% unless @next_page == nil %>
-			<%= link_to page_path(@next_page) do %>
-				<%= image_tag "arrow-next.png" %>
-			<% end %>
-		<% else %>
-			<%= link_to new_page_path(slambook_id: @page.slambook.id) do %>
-				<%= image_tag "arrow-next.png" %>
-			<% end %>
-		<% end %>
-	</div>
-
-</div><!--end container page-container-->
 

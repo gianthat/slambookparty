@@ -15,6 +15,10 @@ class Entry < ActiveRecord::Base
 	belongs_to :page
 	belongs_to :user
 
+	validates :content, presence: true
+	validates :user_id, presence: true
+	validates :page_id, presence: true
+
 	def display_text
 		if self.anonymous?
 			"#{self.content}"
