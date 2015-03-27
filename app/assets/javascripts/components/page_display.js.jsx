@@ -15,8 +15,11 @@ var PageContainer = React.createClass ({
 		$.ajax({
 		url: this.props.url,
 		dataType: 'json',
-		success: function (entries) {
-			this.setState({entries: entries});
+		success: function (result) {
+			var pageData = result;
+			var title = pageData["title"];
+			var entries = pageData["entries"];
+			this.setState({title: title, entries: entries})
 		}.bind(this),
 		error: function (xhr, status, err) {
 			console.error(this.props.url, status, err.toString());
@@ -70,7 +73,7 @@ var NewEntryForm = React.createClass ({
 	render: function () {
 		return (
 			<form>
-			// don't forget to somehow add page_id and user_id here. hidden fields?
+				<p>be sure to add page_id and user_id here. hidden fields?</p>
 				<div className="form-group">
 					<textarea rows="5" className="form-control" placeholder="Add your answer!"  ref="content" />
 				</div>
@@ -112,10 +115,10 @@ var NextArrow = React.createClass ({
 var ready = function () {
 	var current_page = $("#page_id").val();
 	var current_user = $("#user_id").val();
-	var json_url = "pages/"+ current_page +".json";
+	var json_url = "/pages/"+ current_page +".json";
 
   React.renderComponent(
-    <PageContainer url="/entries.json" />,
+    <PageContainer url={json_url} />,
     document.getElementById('page-container-component')
   );
 };
