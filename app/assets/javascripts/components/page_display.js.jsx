@@ -64,7 +64,15 @@ var PageContainer = React.createClass ({
 var EntriesList = React.createClass ({
 	render: function () {
 	var entries = this.props.entries.map(function(entry){
-		return (<EntryRow key={entry.id} entry={entry} />);
+		var entryUrl = "/entries/" + entry.id;
+		var entryUserId = entry.user_id;
+		var userId = $("#user_id").val();
+		if (entryUserId == userId) {
+			var deleteableClass = "deleteable-entry"
+		} else {
+			var deleteableClass = "undeletable"
+		}
+		return (<EntryRow key={entry.id} entry={entry} entryUrl={entryUrl} deleteableClass={deleteableClass} />);
 	});
 		return (
 			<div className="entries">
@@ -77,7 +85,14 @@ var EntriesList = React.createClass ({
 var EntryRow = React.createClass ({
 	render: function () {
 		return (
-			<p className={this.props.entry.user_pen_color.concat("-text")}>{this.props.entry.display_text}</p>
+			<p className={this.props.deleteableClass} >
+			<span className={this.props.entry.user_pen_color.concat("-text ")} > 
+			{this.props.entry.display_text}
+			</span>
+			<a data-confirm="You really want to delete your entry?" className="pink-hover margin-left" rel="nofollow" data-method="delete" href={this.props.entryUrl}>
+				<i className="glyphicon glyphicon-trash"></i>
+			</a>
+			</p>
 			);
 	}
 });
@@ -144,7 +159,7 @@ var ready = function () {
 	var currentPage = $("#page_id").val();
 	var jsonUrl = "/pages/"+ currentPage +".json";
 
-  React.renderComponent(
+  React.render(
     <PageContainer url={jsonUrl} pollInterval={2000} postUrl="/entries.json"/>,
     document.getElementById('page-container-component')
   );

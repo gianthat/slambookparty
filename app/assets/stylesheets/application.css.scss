@@ -379,6 +379,10 @@ h1 .glyphicon-trash {
 	top: -5px;
 }
 
+.undeletable .glyphicon-trash {
+	display: none;
+}
+
 .deleteable-entry .glyphicon-trash {
 	display: none;
 }
