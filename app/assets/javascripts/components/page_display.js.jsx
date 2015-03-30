@@ -43,7 +43,7 @@ var PageContainer = React.createClass ({
 				this.loadPageDataFromServer();
 			}.bind(this),
 			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
+				console.error(this.props.postUrl, status, err.toString());
 			}.bind(this)
 		});
 	},
@@ -86,7 +86,7 @@ var EntryRow = React.createClass ({
 	render: function () {
 		return (
 			<p className={this.props.deleteableClass} >
-			<span className={this.props.entry.user_pen_color.concat("-text ")} > 
+			<span className={this.props.entry.user_pen_color.concat("-text")} > 
 			{this.props.entry.display_text}
 			</span>
 			<a data-confirm="You really want to delete your entry?" className="pink-hover margin-left" rel="nofollow" data-method="delete" href={this.props.entryUrl}>
@@ -103,11 +103,10 @@ var NewEntryForm = React.createClass ({
 		var userId = $("#user_id").val();
 		var pageId = $("#page_id").val();
 		var entryInput = this.refs.content.getDOMNode().value.trim();
-		var anonymous = this.refs.anonymous.getDOMNode().value.trim();
-		alert(anonymous);
+		var anonymous = this.refs.anonymous.getDOMNode().checked;
 		this.props.onEntrySubmit({user_id: userId, page_id: pageId, content: entryInput, anonymous: anonymous});
 		this.refs.content.getDOMNode().value = '';
-		this.refs.anonymous.getDOMNode().value = '';
+		this.refs.anonymous.getDOMNode().checked = false;
 		e.preventDefault();
 	},
 
@@ -161,7 +160,7 @@ var ready = function () {
 	var jsonUrl = "/pages/"+ currentPage +".json";
 
   React.render(
-    <PageContainer url={jsonUrl} pollInterval={2000} postUrl="/entries.json"/>,
+    <PageContainer url={jsonUrl} pollInterval={10000} postUrl="/entries.json"/>,
     document.getElementById('page-container-component')
   );
 };
