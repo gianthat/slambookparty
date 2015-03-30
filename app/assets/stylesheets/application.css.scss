@@ -89,6 +89,18 @@ body {
 	letter-spacing: 1px;
 }
 
+.btn-info {
+	background-color: $orange;
+	color: white !important;
+	font-family: 'Gloria Hallelujah', cursive;
+	border: none;
+	letter-spacing: 1px;
+	&:hover {
+		background-color: $blue;
+		border: none;
+	}
+}
+
 h1 {
 	font-size: 48px;
 	margin-bottom: 30px;
@@ -379,7 +391,7 @@ h1 .glyphicon-trash {
 	top: -5px;
 }
 
-.undeletable .glyphicon-trash {
+.undeletable h.glyphicon-trash {
 	display: none;
 }
 
@@ -426,6 +438,18 @@ footer {
 	}
 	.glyphicon {
 		font-size: 14px;
+	}
+}
+
+#cliques-well {
+	font-family: 'Gloria Hallelujah', cursive;
+	padding-left: 15px;
+	h2 {
+		margin-bottom: 30px;
+		text-decoration: underline;
+	}
+	.single-clique {
+		margin-bottom: 30px;
 	}
 }
 
