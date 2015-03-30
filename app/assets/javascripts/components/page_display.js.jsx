@@ -104,10 +104,11 @@ var NewEntryForm = React.createClass ({
 		var pageId = $("#page_id").val();
 		var entryInput = this.refs.content.getDOMNode().value.trim();
 		var anonymous = this.refs.anonymous.getDOMNode().value.trim();
+		alert(anonymous);
 		this.props.onEntrySubmit({user_id: userId, page_id: pageId, content: entryInput, anonymous: anonymous});
 		this.refs.content.getDOMNode().value = '';
 		this.refs.anonymous.getDOMNode().value = '';
-		return false;
+		e.preventDefault();
 	},
 
 	render: function () {
