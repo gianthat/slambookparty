@@ -38,7 +38,7 @@ var PageContainer = React.createClass ({
 			url: this.props.postUrl,
 			dataType: 'json',
 			type: 'POST',
-			data: {entry: entry},
+			data: {"entry": entry},
 			success: function(data) {
 				this.loadPageDataFromServer();
 			}.bind(this),

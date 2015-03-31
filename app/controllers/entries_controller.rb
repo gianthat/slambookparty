@@ -12,7 +12,6 @@ class EntriesController < ApplicationController
   end
 
   def show
-    failure
     respond_to do |format|
       format.json {render json: @entry }
     end
@@ -31,10 +30,8 @@ class EntriesController < ApplicationController
     authorize @entry
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to @entry.page }
-        format.json { render :show, status: :created, location: @entry }
+        format.json {render :json=>true}
       else
-        format.html { render :new }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
     end
