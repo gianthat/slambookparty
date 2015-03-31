@@ -48,11 +48,31 @@ var PageContainer = React.createClass ({
 		});
 	},
 
+	handleEntryDelete: function(entry) {
+		console.log("handleEntryDelete line 52");
+        var entries = this.state.entries;
+        var undeletedEntries = entries.filter(function(elem) {
+            return elem.id != entry.id;
+        });
+        this.setState({entries: undeletedEntries});
+        console.log(undeletedEntries);
+       $.ajax({
+           type: 'DELETE',
+           url: this.props.entryUrl,
+           success: function() {
+           	this.loadPageDataFromServer();
+           }.bind(this),
+           error: function(xhr, status, err) {
+                console.error(this.props.entryUrl, status, err.toString());
+            }.bind(this)
+       });
+    },
+
 	render: function () {
 		return (
 			<div className="container page-container">
 				<h1 className="text-center">{this.state.title} </h1>
-				<EntriesList entries={this.state.entries} />
+				<EntriesList entries={this.state.entries} parentEntryDelete={this.handleEntryDelete} />
 				<NewEntryForm onEntrySubmit={this.handleEntrySubmit} />
 				<BackArrow backUrl={this.state.backUrl} />
 				<NextArrow nextUrl={this.state.nextUrl} />
@@ -63,6 +83,7 @@ var PageContainer = React.createClass ({
 
 var EntriesList = React.createClass ({
 	render: function () {
+	var entryDelete = this.props.parentEntryDelete;
 	var entries = this.props.entries.map(function(entry, index){
 		var entryUrl = "/entries/" + entry.id;
 		var entryUserId = entry.user_id;
@@ -72,7 +93,7 @@ var EntriesList = React.createClass ({
 		} else {
 			var deleteableClass = "undeletable"
 		}
-		return (<EntryRow key={index} entry={entry} entryUrl={entryUrl} deleteableClass={deleteableClass} />);
+		return (<EntryRow key={index} entry={entry} entryUrl={entryUrl} deleteableClass={deleteableClass} onEntryDelete={entryDelete} />);
 	});
 		return (
 			<div className="entries">
@@ -83,13 +104,18 @@ var EntriesList = React.createClass ({
 });
 
 var EntryRow = React.createClass ({
+
+ handleDelete: function () {
+ 	this.props.onEntryDelete;
+   },
+
 	render: function () {
 		return (
 			<p className={this.props.deleteableClass} >
 			<span className={this.props.entry.user_pen_color.concat("-text")} > 
 				{this.props.entry.display_text}
 			</span>
-			<a data-confirm="You really want to delete your entry?" className="pink-hover margin-left" rel="nofollow" data-method="delete" href={this.props.entryUrl}>
+			<a data-confirm="You really want to delete your entry?" className="pink-hover margin-left"  onClick={this.handleDelete}>
 				<i className="glyphicon glyphicon-trash"></i>
 			</a>
 			</p>
@@ -160,7 +186,7 @@ var ready = function () {
 	var jsonUrl = "/pages/"+ currentPage +".json";
 
   React.render(
-    <PageContainer url={jsonUrl} pollInterval={10000} postUrl="/entries.json"/>,
+    <PageContainer url={jsonUrl} pollInterval={2000} postUrl="/entries.json"/>,
     document.getElementById('page-container-component')
   );
 };
