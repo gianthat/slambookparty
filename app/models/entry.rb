@@ -21,7 +21,7 @@ class Entry < ActiveRecord::Base
 
 	def display_text
 		if self.anonymous?
-			"#{self.content}"
+			"#{self.content} - Anonymous"
 		else
 			"#{self.content} - #{self.user.name_with_initial}"
 		end

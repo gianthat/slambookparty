@@ -12,6 +12,7 @@ class EntriesController < ApplicationController
   end
 
   def show
+    failure
     respond_to do |format|
       format.json {render json: @entry }
     end

@@ -25,10 +25,9 @@ class Slambook < ActiveRecord::Base
 	end
 
 	def pages_in_order
-		question_pages = self.pages.where(page_type: "question")
-		member_pages = self.pages.where(page_type: "member")
 		free_page = self.pages.where(page_type: "free")
-		question_pages + member_pages + free_page
+		other_pages = self.pages - free_page
+		free_page + other_pages
 	end
 
 end

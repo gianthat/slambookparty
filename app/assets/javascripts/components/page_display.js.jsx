@@ -38,7 +38,7 @@ var PageContainer = React.createClass ({
 			url: this.props.postUrl,
 			dataType: 'json',
 			type: 'POST',
-			data: {"entry": entry},
+			data: {entry: entry},
 			success: function(data) {
 				this.loadPageDataFromServer();
 			}.bind(this),
@@ -63,7 +63,7 @@ var PageContainer = React.createClass ({
 
 var EntriesList = React.createClass ({
 	render: function () {
-	var entries = this.props.entries.map(function(entry){
+	var entries = this.props.entries.map(function(entry, index){
 		var entryUrl = "/entries/" + entry.id;
 		var entryUserId = entry.user_id;
 		var userId = $("#user_id").val();
@@ -72,7 +72,7 @@ var EntriesList = React.createClass ({
 		} else {
 			var deleteableClass = "undeletable"
 		}
-		return (<EntryRow key={entry.id} entry={entry} entryUrl={entryUrl} deleteableClass={deleteableClass} />);
+		return (<EntryRow key={index} entry={entry} entryUrl={entryUrl} deleteableClass={deleteableClass} />);
 	});
 		return (
 			<div className="entries">
@@ -87,7 +87,7 @@ var EntryRow = React.createClass ({
 		return (
 			<p className={this.props.deleteableClass} >
 			<span className={this.props.entry.user_pen_color.concat("-text")} > 
-			{this.props.entry.display_text}
+				{this.props.entry.display_text}
 			</span>
 			<a data-confirm="You really want to delete your entry?" className="pink-hover margin-left" rel="nofollow" data-method="delete" href={this.props.entryUrl}>
 				<i className="glyphicon glyphicon-trash"></i>
@@ -121,7 +121,7 @@ var NewEntryForm = React.createClass ({
 					<input type="checkbox" className="margin-left" ref="anonymous" />
 				</div>
 				<div className="form-group">
-					<button className="btn btn-primary" onClick={this.handleSubmit} >Submit</button>
+					<button className="btn btn-primary">Submit</button>
 				</div>
 			</form>
 			);
