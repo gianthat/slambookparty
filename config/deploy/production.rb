@@ -1,6 +1,6 @@
 set :stage, :production
 set :branch, :master
-set :deploy_to, "/home/gianthatworks/slambook/production"
+set :deploy_to, "/home/slambookparty/production"
 set :rails_env, :production
 
 # you can set custom ssh options
