@@ -1,6 +1,6 @@
-set :application, 'gianthatworks'
-set :repo_url, 'git@github.com:efeqdev/slambookparty.git'
-server '104.236.32.212', user: 'gianthatworks', roles: %w{web app}
+set :application, 'slambookparty'
+set :repo_url, 'git@github.com:gianthat/slambookparty.git'
+server '104.236.32.212', user: 'slambookparty', roles: %w{web app}
 
 set :log_level, :info
 
