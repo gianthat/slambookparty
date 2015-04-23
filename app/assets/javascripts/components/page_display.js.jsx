@@ -158,7 +158,7 @@ var NextArrow = React.createClass ({
 		return (
 			<div className="pull-right arrow">
 			<a href={this.props.nextUrl}>
-				<img src="/public/assets/arrow-next.png" alt="Arrow next" />
+				<img src="/assets/arrow-next.png" alt="Arrow next" />
 			</a>
 			</div>
 			);
