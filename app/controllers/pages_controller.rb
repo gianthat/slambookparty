@@ -42,13 +42,14 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
+    @slambook = Slambook.find_by(id: params[:slambook_id])
     authorize @page
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
         format.json { render :show, status: :created, location: @page }
       else
-        format.html { render :new }
+        format.html { render :new}
         format.json { render json: @page.errors, status: :unprocessable_entity }
       end
     end

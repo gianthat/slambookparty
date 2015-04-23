@@ -13,6 +13,7 @@
 class Page < ActiveRecord::Base
 	belongs_to :slambook
 	has_many :entries
+	validates :title, presence: true
 
 	PAGE_TYPES = ["free", "question", "member"]
 
